@@ -1,0 +1,20 @@
+[{
+  "_id": "650a1d9e8b1d4c0012345678",
+  "name": "Stefano",
+  "surname": "Rossi",
+  "email": "stefano.rossi@example.com",
+  "password": "$2b$10$hashedpassword1",
+  "role": "user",
+  "createdAt": "2025-11-14T09:00:00Z",
+  "updatedAt": "2025-11-14T09:00:00Z"
+},
+{
+  "_id": "650a1d9e8b1d4c0012345679",
+  "name": "Maria",
+  "surname": "Bianchi",
+  "email": "maria.bianchi@example.com",
+  "password": "$2b$10$hashedpassword2",
+  "role": "user",
+  "createdAt": "2025-11-14T09:30:00Z",
+  "updatedAt": "2025-11-14T09:30:00Z"
+}]

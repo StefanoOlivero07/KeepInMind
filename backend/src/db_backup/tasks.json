@@ -1,0 +1,24 @@
+[{
+  "_id": "650a1e3e8b1d4c0012345670",
+  "title": "Comprare latte",
+  "description": "Andare al supermercato e comprare latte e uova",
+  "createdAt": "2025-11-14T10:00:00Z",
+  "dueDate": "2025-11-15T12:00:00Z",
+  "completed": false,
+  "createdBy": {
+    "_id": "650a1d9e8b1d4c0012345678",
+    "name": "Stefano Rossi"
+  }
+},
+{
+  "_id": "650a1e3e8b1d4c0012345671",
+  "title": "Inviare report",
+  "description": "Inviare il report settimanale al team",
+  "createdAt": "2025-11-14T11:00:00Z",
+  "dueDate": "2025-11-16T09:00:00Z",
+  "completed": true,
+  "createdBy": {
+    "_id": "650a1d9e8b1d4c0012345679",
+    "name": "Maria Bianchi"
+  }
+}]
