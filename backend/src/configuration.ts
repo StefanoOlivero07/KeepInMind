@@ -10,3 +10,10 @@ export class Configuration {
     };
     postParametersSize: string = "5mb";
 }
+
+export class ServerMessages {
+    missingParameters: string = "Missing parameters";
+    invalidCredentials: string = "Invalid credentials";
+    databaseConnectionRefused: string = "Database connection refused";
+    queryError: string = "Query error: ";
+}

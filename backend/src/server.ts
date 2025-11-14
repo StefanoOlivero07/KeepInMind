@@ -1,15 +1,16 @@
 "use strict"
 
-import http from "http";
-import fs from "fs";
+import http, { Server } from "http";
+import fs, { copyFile } from "fs";
 import express from "express";
-import { Collection, Condition, MongoClient, MongoError } from "mongodb";
-import { Configuration } from "./configuration";
+import { Collection, Condition, MongoClient, MongoError, ObjectId } from "mongodb";
+import { Configuration, ServerMessages } from "./configuration";
 import bcrypt from "bcrypt";
 
 const app: express.Express = express();
 const server: http.Server = http.createServer(app);
 const config: Configuration = new Configuration();
+const serverMsg: ServerMessages = new ServerMessages();
 let errorPage: string = "";
 
 server.listen(config.port, () => {
@@ -46,8 +47,8 @@ app.post("/api/login", async (req, res, next) => {
         const client: MongoClient = new MongoClient(config.connectionString);
 
         await client.connect().catch((err) => {
-            console.error("Database connection refused");
-            res.status(503).send("Database connection refused");
+            console.error(serverMsg.databaseConnectionRefused);
+            res.status(503).send(serverMsg.databaseConnectionRefused);
             return;
         });
 
@@ -56,13 +57,13 @@ app.post("/api/login", async (req, res, next) => {
 
         cmd
             .catch((err: MongoError) => {
-                res.status(500).send("Query error: " + err.message);
+                res.status(500).send(serverMsg.queryError + err.message);
             })
             .then(async (data) => {
-                if (!data) return res.status(401).send("Invalid credentials");
+                if (!data) return res.status(401).send(serverMsg.invalidCredentials);
 
                 const passwordValid = await bcrypt.compare(password, data.password);
-                if (!passwordValid) return res.status(401).send("Invalid credentials");
+                if (!passwordValid) return res.status(401).send(serverMsg.invalidCredentials);
 
                 res.send({
                     _id: data._id,
@@ -76,7 +77,37 @@ app.post("/api/login", async (req, res, next) => {
         return;
     }
 
-    res.status(500).send("Missing parameters");
+    res.status(500).send(serverMsg.missingParameters);
+    return;
+});
+
+app.get("/api/getAllUserTasks", async (req, res, next) => {
+    if (req.query.id) {
+        const objectId: ObjectId = new ObjectId(req.query.id as string);
+        const client: MongoClient = new MongoClient(config.connectionString);
+        
+        await client.connect().catch((err: MongoError) => {
+            console.log(serverMsg.databaseConnectionRefused);
+            res.status(503).send(serverMsg.databaseConnectionRefused);
+        });
+
+        const collection: Collection = client.db(config.dbName).collection(config.dbCollections.tasksCollection);
+        const cmd = collection.find({"createdBy._id" : objectId}).sort({ "dueDate": 1, "title": 1 }).toArray();
+
+        cmd
+            .catch((err: MongoError) => {
+                res.status(500).send(serverMsg.queryError + err.message);
+            })
+            .then((data) => {
+                res.send(data);
+            })
+            .finally(() => {
+                client.close();
+            });
+        return;
+    }
+
+    res.status(500).send(serverMsg.missingParameters);
     return;
 });
 
