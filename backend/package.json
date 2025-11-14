@@ -1,0 +1,31 @@
+{
+  "name": "keepinmind",
+  "version": "1.0.0",
+  "description": "A very useful application for assigning tasks, in order to simplify ad speed up productivity",
+  "main": "server.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StefanoOlivero07/KeepInMind.git"
+  },
+  "author": "Stefano Olivero",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/StefanoOlivero07/KeepInMind/issues"
+  },
+  "homepage": "https://github.com/StefanoOlivero07/KeepInMind#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "mongodb": "^6.20.0",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.7.0"
+  }
+}
