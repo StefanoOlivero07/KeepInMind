@@ -5,7 +5,6 @@ import fs, { copyFile } from "fs";
 import express from "express";
 import { Collection, Condition, MongoClient, MongoError, ObjectId } from "mongodb";
 import { Configuration, ServerMessages } from "./configuration";
-import bcrypt from "bcrypt";
 
 const app: express.Express = express();
 const server: http.Server = http.createServer(app);
@@ -52,8 +51,8 @@ app.post("/api/login", async (req, res, next) => {
             return;
         });
 
-        const collection: Collection = client.db(config.dbName).collection(config.dbCollections.usersCollection);
-        const cmd = collection.findOne({email});
+        const collection: Collection = client.db(config.dbName).collection(config.dbCollection);
+        const cmd = collection.findOne({email, password});
 
         cmd
             .catch((err: MongoError) => {
@@ -61,9 +60,6 @@ app.post("/api/login", async (req, res, next) => {
             })
             .then(async (data) => {
                 if (!data) return res.status(401).send(serverMsg.invalidCredentials);
-
-                const passwordValid = await bcrypt.compare(password, data.password);
-                if (!passwordValid) return res.status(401).send(serverMsg.invalidCredentials);
 
                 res.send({
                     _id: data._id,
@@ -81,7 +77,7 @@ app.post("/api/login", async (req, res, next) => {
     return;
 });
 
-app.get("/api/getAllUserTasks", async (req, res, next) => {
+app.get("/api/getUsersTasks", async (req, res, next) => {
     if (req.query.id) {
         const objectId: ObjectId = new ObjectId(req.query.id as string);
         const client: MongoClient = new MongoClient(config.connectionString);
@@ -91,8 +87,8 @@ app.get("/api/getAllUserTasks", async (req, res, next) => {
             res.status(503).send(serverMsg.databaseConnectionRefused);
         });
 
-        const collection: Collection = client.db(config.dbName).collection(config.dbCollections.tasksCollection);
-        const cmd = collection.find({"createdBy._id" : objectId}).sort({ "dueDate": 1, "title": 1 }).toArray();
+        const collection: Collection = client.db(config.dbName).collection(config.dbCollection);
+        const cmd = collection.find({"_id": objectId, "role": "user", "tasks.completed": false}).sort({"dueDate": 1}).project({"tasks": 1, "_id": 0}).toArray();
 
         cmd
             .catch((err: MongoError) => {
