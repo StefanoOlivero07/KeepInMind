@@ -236,7 +236,9 @@ app.get("/api/getTaskById", async (req, res, next) => {
 app.use("/", (req, res, next) => {
     res.status(404);
     res.send("Resource not found");
-})
+});
+
+// ------ Functions ------
 
 async function connectClient() {
     await client.connect().catch((err: MongoError) => {
