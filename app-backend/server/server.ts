@@ -86,8 +86,8 @@ app.post("/api/login", async (req, res, next) => {
 });
 
 
-// Get user tasks
-app.get("/api/getUserTasks", async (req, res, next) => {
+// Get completed tasks
+app.get("/api/getCompletedTasks", async (req, res, next) => {
     
     if (!req.query.userId) {
         console.error("Missing userId parameter");
@@ -106,10 +106,119 @@ app.get("/api/getUserTasks", async (req, res, next) => {
     }
 
     const collection = client.db(dbName).collection(process.env.COLLECTION_NAME!);
-    const cmd = collection.find({"user._id": userId})
-        .project({"title": 1, "description": 1, "category": 1, "created": 1, "expiration": 1, "notes": 1, "_id": 0})
+    const cmd = collection.find({"user._id": userId, "completed": true})
+        .project({"title": 1, "description": 1, "category": 1, "expiration": 1, "_id": 0})
+        .sort({"expiration": 1})
         .toArray();
     
+    cmd
+        .then((data) => {
+            res.send(data);
+        })
+        .catch((err: MongoError) => {
+            console.error(err.message);
+            res.status(500).send(err.message);
+        })
+        .finally(() => {
+            client.close();
+        });
+});
+
+// Get not completed tasks
+app.get("/api/getNotCompletedTasks", async (req, res, next) => {
+
+    if (!req.query.userId) {
+        console.error("Missing userId parameter");
+        res.status(400).send("Missing userId parameter");
+        return;
+    }
+
+    const userId: ObjectId = new ObjectId(req.query.userId!.toString());
+    const result: string = await connectClient();
+
+    if (result != "ok") {
+        console.error(result);
+        res.status(503).send(result);
+        return;
+    }
+
+    const collection = client.db(dbName).collection(process.env.COLLECTION_NAME!);
+    const cmd = collection.find({"user._id": userId, "completed": false})
+        .project({"title": 1, "description": 1, "category": 1, "expiration": 1, "_id": 0})
+        .sort({"expiration": 1})
+        .toArray();
+
+    cmd
+        .then((data) => {
+            res.send(data);
+        })
+        .catch((err: MongoError) => {
+            console.error(err.message);
+            res.status(500).send(err.message);
+        })
+        .finally(() => {
+            client.close();
+        });
+});
+
+// Get expired tasks
+app.get("/api/getExpiredTasks", async (req, res, next) => {
+
+    if (!req.query.userId) {
+        console.error("Missing userId parameter");
+        res.status(400).send("Missing userId parameter");
+        return;
+    }
+    
+    const userId: ObjectId = new ObjectId(req.query.userId!.toString());
+    const result: string = await connectClient();
+
+    if (result != "ok") {
+        console.error(result);
+        res.status(503).send(result);
+        return;
+    }
+
+    const collection = client.db(dbName).collection(process.env.COLLECTION_NAME!);
+    const cmd = collection.find({"user._id": userId, "expiration": {"$lt": new Date().toLocaleDateString()}, "completed": false})
+        .project({"title": 1, "description": 1, "category": 1, "expiration": 1, "_id": 0})
+        .sort({"expiration": 1})
+        .toArray();
+    
+    cmd
+        .then((data) => {
+            res.send(data);
+        })
+        .catch((err: MongoError) => {
+            console.error(err.message);
+            res.status(500).send(err.message);
+        })
+        .finally(() => {
+            client.close();
+        });
+});
+
+// Get task by id
+app.get("/api/getTaskById", async (req, res, next) => {
+
+    if (!req.query.taskId) {
+        console.error("Missing taskId parameter");
+        res.status(400).send("Missing taskId parameter");
+        return;
+    }
+
+    const taskId: ObjectId = new ObjectId(req.query.taskId!.toString());
+    const result: string = await connectClient();
+
+    if (result != "ok") {
+        console.error(result);
+        res.status(503).send(result);
+        return;
+    }
+
+    const collection = client.db(dbName).collection(process.env.COLLECTION_NAME!);
+    const cmd = collection.findOne({"_id": taskId}, {projection: {"title": 1, "description": 1, "category": 1, "created": 1, "expiration": 1, "notes": 1, "completed": 1, "_id": 0}});
+
     cmd
         .then((data) => {
             res.send(data);
