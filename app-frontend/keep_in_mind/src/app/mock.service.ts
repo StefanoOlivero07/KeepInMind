@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 declare global {
     function getCompletedTasks(userId: string): any;
     function getNotCompletedTasks(userId: string): any;
+    function getExpiredTasks(userId: string): any;
 }
 
 @Injectable({
@@ -15,5 +16,9 @@ export class MockRequests {
 
     getNotCompletedTasks(userId: string): any {
         return getNotCompletedTasks(userId);
+    }
+
+    getExpiredTasks(userId: string): any {
+        return getExpiredTasks(userId);
     }
 }

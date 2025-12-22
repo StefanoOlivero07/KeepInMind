@@ -5,22 +5,22 @@ import { Message } from '../message';
 import { Task } from '../task/task';
 
 @Component({
-  selector: 'app-completed-task',
+  selector: 'app-expired-tasks',
   imports: [Task],
-  templateUrl: './completed-tasks.html',
-  styleUrl: './completed-tasks.css',
+  templateUrl: './expired-tasks.html',
+  styleUrl: './expired-tasks.css',
 })
-export class CompletedTask {
-  tasks: any[] = [];
+export class ExpiredTasks {
+  tasks: any = [];
 
   constructor(private httpService: HttpService, private mockRequests: MockRequests) {}
 
   async ngOnInit() {
-    // TODO: get userId from local storage
-    const response = this.mockRequests.getCompletedTasks("67661a2f8e4c3b1234567890");
+    const response = this.mockRequests.getExpiredTasks("67661a2f8e4c3b1234567890");
 
-    if (response.status == 200) {
+    if (response.status === 200) {
       this.tasks = response.data;
+      console.log(this.tasks);
     }
     else
       Message.showError(response.status, response.message);

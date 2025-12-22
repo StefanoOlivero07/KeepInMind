@@ -23,6 +23,6 @@ export class NotCompletedTasks {
       this.tasks = response.data;
     }
     else
-      Message.showError(response.status, "Failed to load not completed tasks");
+      Message.showError(response.status, response.message);
   }
 }

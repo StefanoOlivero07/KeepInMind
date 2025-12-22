@@ -1,3 +1,7 @@
+.text-info {
+    color: #007bff !important;
+}
+
 @media (max-width: 520px) {
     h5 {
         margin-left: 0 !important;

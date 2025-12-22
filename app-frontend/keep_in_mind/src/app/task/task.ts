@@ -31,5 +31,13 @@ export class Task {
       return {"width": "100%"};
     return {"width": "5.5rem"};
   }
-}
 
+  formatDate(dateString: string): string {
+    if (!dateString) return '';
+    const date = new Date(dateString);
+    const day = date.getDate().toString()
+    const month = (date.getMonth() + 1).toString();
+    const year = date.getFullYear();
+    return `${day}-${month}-${year}`;
+  }
+}

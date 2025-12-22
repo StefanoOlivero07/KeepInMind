@@ -5,13 +5,13 @@
     </div>
     <ul class="list-group list-group-flush">
         @if (!task.completed && !isExpired()) {
-            <li>Entro il: <strong>{{ task.expiration }}</strong></li>
+            <li>Entro il: <strong class="text-info">{{ formatDate(task.expiration) }}</strong></li>
         }
         @else if (task.completed) {
-            <li>Completato il: <strong>{{ task.completedAt }}</strong></li>
+            <li>Completato il: <strong class="text-success">{{ formatDate(task.completedAt) }}</strong></li>
         }
         @else {
-            <li>Scaduto il: <strong class="text-danger">{{ task.expiration }}</strong></li>
+            <li>Scaduto il: <strong class="text-danger">{{ formatDate(task.expiration) }}</strong></li>
         }
     </ul>
     <ul class="card-body btn-section">

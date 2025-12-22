@@ -34,6 +34,10 @@
     text-overflow: ellipsis;
 }
 
+.text-info {
+    color: #007bff !important;
+}
+
 .list-group {
     border-top: 1px solid #000;
     border-bottom: 1px solid #000;
