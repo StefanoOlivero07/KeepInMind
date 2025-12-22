@@ -5,6 +5,7 @@ import http from "http";
 import fs from "fs";
 import path from "path";
 import express from "express";
+import cors from "cors";
 import dotenv from "dotenv";
 import { MongoClient, MongoError, ObjectId } from "mongodb";
 
@@ -21,6 +22,11 @@ if (!connectionString) {
 }
 const port: number = parseInt(process.env.port!) || 3000;
 
+const allowedOrigins = process.env.CORS_ORIGINS?.split(",")
+    .map((origin) => origin.trim())
+    .filter((origin) => origin.length > 0)
+    || ["http://localhost:4200"];
+
 const dbName: string = process.env.DB_NAME!;
 const client: MongoClient = new MongoClient(connectionString);
 
@@ -32,6 +38,13 @@ server.listen(port, () => {
 });
 
 // ------ Middlewares ------
+app.use(cors({
+    origin: allowedOrigins,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true
+}));
+
 app.use("/", (req, res, next) => {
     console.log(req.method + ": " + req.originalUrl);
     next();
