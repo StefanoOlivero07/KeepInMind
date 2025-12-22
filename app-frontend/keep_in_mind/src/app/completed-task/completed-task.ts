@@ -13,7 +13,8 @@ export class CompletedTask {
   constructor(private httpService: HttpService) {}
 
   async ngOnInit() {
-    const response = await this.httpService.sendRq("GET", "/api/getCompletedTasks");
+    // TODO: get userId from local storage
+    const response = await this.httpService.sendRq("GET", "/api/getCompletedTasks", {"userId": "67661a2f8e4c3b1234567891"});
 
     if (response.status == 200) {
       this.tasks = response.data;
