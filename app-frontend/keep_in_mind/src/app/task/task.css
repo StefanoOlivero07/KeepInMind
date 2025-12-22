@@ -1,0 +1,65 @@
+.card {
+    width: 100%;
+    max-width: 14rem;
+    /* Or  #f4c95d */
+    background-color: #8fd2ff;
+    height: 280px;
+}
+
+.card-not-completed {
+    border: 3px solid #007bff;
+}
+
+.card-completed {
+    border: 3px solid #28a745;
+}
+
+.card-expired {
+    border: 3px solid #dc3545;
+}
+
+.card-title {
+    font-size: 16pt;
+}
+
+.card-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    line-clamp: 3;
+}
+
+.card-title, .card-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.list-group {
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    font-size: 10pt;
+}
+
+.list-group {
+    list-style: none;
+}
+
+.btn-section {
+    margin-bottom: 0;
+}
+
+.btn-section .btn {
+    width: 5.5rem;
+}
+
+.btn-section .btn:nth-of-type(2) {
+    margin-right: 0.5rem;
+}
+
+.btn-section .btn-info {
+    background-color: #007bff;
+}
+
+.btn-section .btn-info:hover {
+    background-color: #0056b3;   
+}

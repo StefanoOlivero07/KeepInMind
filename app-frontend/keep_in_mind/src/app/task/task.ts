@@ -1,11 +1,35 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-task',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './task.html',
   styleUrl: './task.css',
 })
 export class Task {
+  @Input() task: any;
 
+  getBorderClass() {
+    let borderClass: string = "";
+
+    if (this.task.completed)
+      borderClass = "card-completed";
+    else if (!this.task.completed && !this.isExpired())
+      borderClass = "card-not-completed";
+    else
+      borderClass = "card-expired"; 
+    return borderClass;
+  }
+
+  isExpired(): boolean {
+    return new Date(this.task.expiration) < new Date();
+  }
+
+  getStyle(completed: boolean) {
+    if (completed)
+      return {"width": "100%"};
+    return {"width": "5.5rem"};
+  }
 }
+

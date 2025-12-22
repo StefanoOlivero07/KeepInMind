@@ -1,0 +1,18 @@
+<div class="container-md">
+    <h5 class="mt-5 ms-3">Task Completati ✓</h5>
+    
+    @if (tasks.length == 0) {
+        <p class="ms-3 mt-3 text-warning">Non ci sono task completati! ⏳</p>
+    }
+    @else {
+        <div class="container-fluid">
+            <div class="row">
+                    @for (task of tasks; track $index) {
+                        <div class="col-auto">
+                            <app-task [task]="task"></app-task>
+                        </div>
+                    }
+            </div>
+        </div>
+    }
+</div>

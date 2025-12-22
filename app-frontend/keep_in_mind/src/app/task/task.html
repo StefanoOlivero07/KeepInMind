@@ -1,1 +1,25 @@
-<p>task works!</p>
+<div class="card mt-3 text-center" [ngClass]="getBorderClass()">
+    <div class="card-body">
+        <h4 class="card-title">{{ task.title }}</h4>
+        <p class="card-text">{{ task.description }}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        @if (!task.completed && !isExpired()) {
+            <li>Entro il: <strong>{{ task.expiration }}</strong></li>
+        }
+        @else if (task.completed) {
+            <li>Completato il: <strong>{{ task.completedAt }}</strong></li>
+        }
+        @else {
+            <li>Scaduto il: <strong class="text-danger">{{ task.expiration }}</strong></li>
+        }
+    </ul>
+    <ul class="card-body btn-section">
+        <button class="btn btn-info text-white mb-2 w-100">Dettagli</button>
+        @if (!task.completed) {
+            <br>
+            <button class="btn btn-success">✓</button>
+        }
+        <button class="btn btn-danger" [style]="getStyle(task.completed)">✗</button>
+    </ul>
+</div>

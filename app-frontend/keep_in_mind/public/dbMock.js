@@ -1,0 +1,401 @@
+window.dbMock = [
+    {
+        "title": "Pagare bolletta",
+        "description": "Pagare bolletta con il cellulare",
+        "category": "spesa",
+        "created": "20/12/2025",
+        "expiration": "26/12/2025",
+        "notes": "",
+        "completed": true,
+        "completedAt": "26/12/2025",
+        "user": {
+            "_id": {
+                "$oid": "67661a2f8e4c3b1234567890"
+            },
+            "name": "Mario",
+            "surname": "Rossi",
+            "email": "mario.rossi@example.com",
+            "password": "5f4dcc35b5aa765d61d8327deb882cf99"
+        }
+    },
+    {
+        "title": "Comprare regalo compleanno",
+        "description": "Regalo per il compleanno di Laura",
+        "category": "spesa",
+        "created": "21/12/2025",
+        "expiration": "28/12/2025",
+        "notes": "Budget max 50 euro",
+        "completed": false,
+        "completedAt": null,
+        "user": {
+            "_id": {
+                "$oid": "67661a2f8e4c3b1234567891"
+            },
+            "name": "Giulia",
+            "surname": "Bianchi",
+            "email": "giulia.bianchi@example.com",
+            "password": "e10adc3949ba59abbe56e057f20f883e"
+        }
+    },
+    {
+        "title": "Cinema con amici",
+        "description": "Vedere l'ultimo film Marvel",
+        "category": "divertimento",
+        "created": "19/12/2025",
+        "expiration": "22/12/2025",
+        "notes": "Prenotare biglietti online",
+        "completed": true,
+        "completedAt": "22/12/2025",
+        "user": {
+            "_id": {
+                "$oid": "67661a2f8e4c3b1234567892"
+            },
+            "name": "Luca",
+            "surname": "Verdi",
+            "email": "luca.verdi@example.com",
+            "password": "25d55ad283aa400af464c76d713c07ad"
+        }
+    },
+    {
+        "title": "Presentazione progetto Q1",
+        "description": "Preparare slide per la presentazione trimestrale",
+        "category": "lavoro",
+        "created": "18/12/2025",
+        "expiration": "30/12/2025",
+        "notes": "Includere dati di vendita e proiezioni",
+        "completed": false,
+        "completedAt": null,
+        "user": {
+            "_id": {
+                "$oid": "67661a2f8e4c3b1234567893"
+            },
+            "name": "Alessandro",
+            "surname": "Ferrari",
+            "email": "alessandro.ferrari@example.com",
+            "password": "098f6bcd4621d373cade4e832627b4f6"
+        }
+    },
+    {
+        "title": "Spesa settimanale",
+        "description": "Fare la spesa al supermercato",
+        "category": "spesa",
+        "created": "21/12/2025",
+        "expiration": "23/12/2025",
+        "notes": "Non dimenticare latte e pane",
+        "completed": true,
+        "completedAt": "23/12/2025",
+        "user": {
+            "_id": {
+                "$oid": "67661a2f8e4c3b1234567890"
+            },
+            "name": "Mario",
+            "surname": "Rossi",
+            "email": "mario.rossi@example.com",
+            "password": "5f4dcc35b5aa765d61d8327deb882cf99"
+        }
+    },
+    {
+        "title": "Organizzare festa Capodanno",
+        "description": "Pianificare festa di Capodanno a casa",
+        "category": "divertimento",
+        "created": "20/12/2025",
+        "expiration": "31/12/2025",
+        "notes": "Chiamare catering, comprare decorazioni",
+        "completed": false,
+        "completedAt": null,
+        "user": {
+            "_id": {
+                "$oid": "67661a2f8e4c3b1234567894"
+            },
+            "name": "Sofia",
+            "surname": "Romano",
+            "email": "sofia.romano@example.com",
+            "password": "827ccb0eea8a706c4c34a16891f84e7b"
+        }
+    },
+    {
+        "title": "Meeting cliente importante",
+        "description": "Incontro con il cliente principale",
+        "category": "lavoro",
+        "created": "19/12/2025",
+        "expiration": "27/12/2025",
+        "notes": "Portare campioni e portfolio",
+        "completed": true,
+        "completedAt": "27/12/2025",
+        "user": {
+            "_id": {
+                "$oid": "67661a2f8e4c3b1234567893"
+            },
+            "name": "Alessandro",
+            "surname": "Ferrari",
+            "email": "alessandro.ferrari@example.com",
+            "password": "098f6bcd4621d373cade4e832627b4f6"
+        }
+    },
+    {
+        "title": "Palestra",
+        "description": "Rinnovare abbonamento palestra",
+        "category": "spesa",
+        "created": "21/12/2025",
+        "expiration": "31/12/2025",
+        "notes": "Chiedere sconto annuale",
+        "completed": false,
+        "completedAt": null,
+        "user": {
+            "_id": {
+                "$oid": "67661a2f8e4c3b1234567892"
+            },
+            "name": "Luca",
+            "surname": "Verdi",
+            "email": "luca.verdi@example.com",
+            "password": "25d55ad283aa400af464c76d713c07ad"
+        }
+    },
+    {
+        "title": "Concerto Rock",
+        "description": "Biglietti per concerto band preferita",
+        "category": "divertimento",
+        "created": "15/12/2025",
+        "expiration": "22/12/2025",
+        "notes": "Vendita biglietti online dalle 10:00",
+        "completed": true,
+        "completedAt": "22/12/2025",
+        "user": {
+            "_id": {
+                "$oid": "67661a2f8e4c3b1234567895"
+            },
+            "name": "Francesca",
+            "surname": "Colombo",
+            "email": "francesca.colombo@example.com",
+            "password": "5d41402abc4b2a76b9719d911017c592"
+        }
+    },
+    {
+        "title": "Report mensile",
+        "description": "Completare report mensile per il manager",
+        "category": "lavoro",
+        "created": "20/12/2025",
+        "expiration": "29/12/2025",
+        "notes": "Includere metriche KPI",
+        "completed": false,
+        "completedAt": null,
+        "user": {
+            "_id": {
+                "$oid": "67661a2f8e4c3b1234567891"
+            },
+            "name": "Giulia",
+            "surname": "Bianchi",
+            "email": "giulia.bianchi@example.com",
+            "password": "e10adc3949ba59abbe56e057f20f883e"
+        }
+    },
+    {
+        "title": "Comprare regali Natale",
+        "description": "Acquistare regali di Natale per la famiglia",
+        "category": "spesa",
+        "created": "18/12/2025",
+        "expiration": "24/12/2025",
+        "notes": "Lista: mamma, papà, sorella",
+        "completed": true,
+        "completedAt": "24/12/2025",
+        "user": {
+            "_id": {
+                "$oid": "67661a2f8e4c3b1234567896"
+            },
+            "name": "Marco",
+            "surname": "Ricci",
+            "email": "marco.ricci@example.com",
+            "password": "7c6a180b36896a0a8c02787eeafb0e4c"
+        }
+    },
+    {
+        "title": "Serata giochi da tavolo",
+        "description": "Organizzare serata con amici",
+        "category": "divertimento",
+        "created": "21/12/2025",
+        "expiration": "26/12/2025",
+        "notes": "Portare nuovo gioco acquistato",
+        "completed": false,
+        "completedAt": null,
+        "user": {
+            "_id": {
+                "$oid": "67661a2f8e4c3b1234567894"
+            },
+            "name": "Sofia",
+            "surname": "Romano",
+            "email": "sofia.romano@example.com",
+            "password": "827ccb0eea8a706c4c34a16891f84e7b"
+        }
+    },
+    {
+        "title": "Corso formazione",
+        "description": "Partecipare al corso di formazione aziendale",
+        "category": "lavoro",
+        "created": "17/12/2025",
+        "expiration": "23/12/2025",
+        "notes": "Corso online, durata 3 ore",
+        "completed": true,
+        "completedAt": "23/12/2025",
+        "user": {
+            "_id": {
+                "$oid": "67661a2f8e4c3b1234567897"
+            },
+            "name": "Elena",
+            "surname": "Esposito",
+            "email": "elena.esposito@example.com",
+            "password": "6cb75f652a9b52798eb6cf2201057c73"
+        }
+    },
+    {
+        "title": "Riparare auto",
+        "description": "Portare auto dal meccanico",
+        "category": "spesa",
+    	"created": "19/12/2025",
+        "expiration": "28/12/2025",
+        "notes": "Problema con i freni",
+        "completed": false,
+        "completedAt": null,
+        "user": {
+            "_id": {
+                "$oid": "67661a2f8e4c3b1234567890"
+            },
+            "name": "Mario",
+            "surname": "Rossi",
+            "email": "mario.rossi@example.com",
+            "password": "5f4dcc35b5aa765d61d8327deb882cf99"
+        }
+    },
+    {
+        "title": "Weekend in montagna",
+        "description": "Prenotare hotel per weekend sciistico",
+        "category": "divertimento",
+        "created": "16/12/2025",
+        "expiration": "22/12/2025",
+        "notes": "Cercare offerte last minute",
+        "completed": true,
+        "completedAt": "22/12/2025",
+        "user": {
+            "_id": {
+                "$oid": "67661a2f8e4c3b1234567892"
+            },
+            "name": "Luca",
+            "surname": "Verdi",
+            "email": "luca.verdi@example.com",
+            "password": "25d55ad283aa400af464c76d713c07ad"
+        }
+    },
+    {
+        "title": "Revisione contratti",
+        "description": "Revisionare contratti clienti per il 2026",
+        "category": "lavoro",
+        "created": "20/12/2025",
+        "expiration": "31/12/2025",
+        "notes": "Priorità contratti in scadenza",
+        "completed": false,
+        "completedAt": null,
+        "user": {
+            "_id": {
+                "$oid": "67661a2f8e4c3b1234567898"
+            },
+            "name": "Andrea",
+            "surname": "Gallo",
+            "email": "andrea.gallo@example.com",
+            "password": "aa47f8215c6f30a0dcdb2a36a9f4168e"
+        }
+    },
+    {
+        "title": "Comprare vestito cerimonia",
+        "description": "Acquistare vestito per matrimonio",
+        "category": "spesa",
+        "created": "21/12/2025",
+        "expiration": "10/01/2026",
+        "notes": "Matrimonio il 15 gennaio",
+        "completed": true,
+        "completedAt": "10/01/2026",
+        "user": {
+            "_id": {
+                "$oid": "67661a2f8e4c3b1234567895"
+            },
+            "name": "Francesca",
+            "surname": "Colombo",
+            "email": "francesca.colombo@example.com",
+            "password": "5d41402abc4b2a76b9719d911017c592"
+        }
+    },
+    {
+        "title": "Pranzo team",
+        "description": "Organizzare pranzo di Natale con il team",
+        "category": "lavoro",
+        "created": "15/12/2025",
+        "expiration": "23/12/2025",
+        "notes": "Prenotare ristorante per 12 persone",
+        "completed": false,
+        "completedAt": null,
+        "user": {
+            "_id": {
+                "$oid": "67661a2f8e4c3b1234567893"
+            },
+            "name": "Alessandro",
+            "surname": "Ferrari",
+            "email": "alessandro.ferrari@example.com",
+            "password": "098f6bcd4621d373cade4e832627b4f6"
+        }
+    },
+    {
+        "title": "Teatro",
+        "description": "Vedere spettacolo teatrale",
+        "category": "divertimento",
+        "created": "18/12/2025",
+        "expiration": "29/12/2025",
+        "notes": "Portare la mamma",
+        "completed": true,
+        "completedAt": "29/12/2025",
+        "user": {
+            "_id": {
+                "$oid": "67661a2f8e4c3b1234567896"
+            },
+            "name": "Marco",
+            "surname": "Ricci",
+            "email": "marco.ricci@example.com",
+            "password": "7c6a180b36896a0a8c02787eeafb0e4c"
+        }
+    },
+    {
+        "title": "Assicurazione casa",
+        "description": "Rinnovare assicurazione casa",
+        "category": "spesa",
+        "created": "17/12/2025",
+        "expiration": "31/12/2025",
+        "notes": "Comparare preventivi",
+        "completed": false,
+        "completedAt": null,
+        "user": {
+            "_id": {
+                "$oid": "67661a2f8e4c3b1234567897"
+            },
+            "name": "Elena",
+            "surname": "Esposito",
+            "email": "elena.esposito@example.com",
+            "password": "6cb75f652a9b52798eb6cf2201057c73"
+        }
+    },
+    {
+        "title": "Budget 2026",
+        "description": "Preparare budget per l'anno fiscale 2026",
+        "category": "lavoro",
+        "created": "19/12/2025",
+        "expiration": "05/01/2026",
+        "notes": "Presentazione alla direzione",
+        "completed": true,
+        "completedAt": "05/01/2026",
+        "user": {
+            "_id": {
+                "$oid": "67661a2f8e4c3b1234567898"
+            },
+            "name": "Andrea",
+            "surname": "Gallo",
+            "email": "andrea.gallo@example.com",
+            "password": "aa47f8215c6f30a0dcdb2a36a9f4168e"
+        }
+    }
+]

@@ -1,9 +1,0 @@
-<h5 class="mt-5 ms-3">Task Completati ✓</h5>
-
-@if (tasks.length > 0) {
-    <ul>
-        @for (task of tasks; track $index) {
-            <li>{{ task.title }}</li>   
-        }
-    </ul>
-}

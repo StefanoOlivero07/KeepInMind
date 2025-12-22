@@ -1,11 +1,12 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Header } from "./header/header";
-import { CompletedTask } from "./completed-task/completed-task";
+import { CompletedTask } from "./completed-tasks/completed-tasks";
+import { NotCompletedTasks } from "./not-completed-tasks/not-completed-tasks";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Header, CompletedTask],
+  imports: [RouterOutlet, Header, CompletedTask, NotCompletedTasks],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

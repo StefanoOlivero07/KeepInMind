@@ -1,0 +1,10 @@
+@media (max-width: 520px) {
+    h5 {
+        margin-left: 0 !important;
+        text-align: center;
+    }
+
+    .row {
+        justify-content: center;
+    }
+}
