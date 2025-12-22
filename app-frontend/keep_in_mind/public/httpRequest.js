@@ -1,5 +1,6 @@
-"use strict";
-const _URL = ""
+"use strict"
+
+const _URL = "http://localhost:3000";
 
 async function sendRq(method, url = "", params = {}) {
 	method = method.toUpperCase()
