@@ -1,0 +1,34 @@
+<div id="wrapper" class="container-md mt-5">
+    @if (!isNewUser) {
+        <label for="txtEmail" class="form-label">Email: </label>
+        <input type="email" id="txtEmail" class="form-control" placeholder="Indirizzo Email" [(ngModel)]="emailValue">
+    
+        <label for="txtPassword" class="form-label mt-3">Password: </label>
+        <input type="password" id="txtPassword" class="form-control" placeholder="Password" [(ngModel)]="passwordValue">
+    
+        <div class="text-center mt-3">
+            <div class="text-danger" [ngClass]="showError()">{{ errorMessage }}</div>
+            <div class="d-block mb-3">Non hai un account? <span class="text-info text-decoration-underline" (click)="onClickNewAccount()">Creane uno!</span></div>
+            <button class="btn btn-success me-2" (click)="onClickLogIn()">Accedi</button>
+            <button class="btn btn-primary">Password dimenticata</button>
+        </div>
+    }
+    @else {
+        <label for="txtNome" class="form-label">Nome: </label>
+        <input type="text" id="txtNome" class="form-control" placeholder="Nome">
+
+        <label for="txtCognome" class="form-label mt-3">Cognome: </label>
+        <input type="text" id="txtCognome" class="form-control" placeholder="Cognome">
+
+        <label for="txtEmail" class="form-label mt-3">Email: </label>
+        <input type="email" id="txtEmail" class="form-control" placeholder="Indirizzo Email">
+
+        <label for="txtPassword" class="form-label mt-3">Password: </label>
+        <input type="password" id="txtPassword" class="form-control" placeholder="Password">
+
+        <div class="text-center mt-3">
+            <div class="d-block mb-3">Hai già un account? <span class="text-info text-decoration-underline" (click)="onClickNewAccount()">Accedi!</span></div>
+            <button class="btn btn-success me-2">Crea Account</button>
+        </div>
+    }
+</div>

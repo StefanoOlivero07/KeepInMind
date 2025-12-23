@@ -395,7 +395,7 @@ window.dbMock = [
             "name": "Andrea",
             "surname": "Gallo",
             "email": "andrea.gallo@example.com",
-            "password": "aa47f8215c6f30a0dcdb2a36a9f4168e"
+            "password": "6e6bc4e49dd477ebc98ef4046c067b5f"
         }
     },
     {

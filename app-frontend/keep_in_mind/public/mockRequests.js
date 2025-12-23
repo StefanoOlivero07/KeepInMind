@@ -1,4 +1,26 @@
-"use strict";
+"use strict"
+
+function login(email, password) {
+    const response = {
+        "data": {},
+        "status": 200,
+        "message": ""
+    };
+
+    if (email && password) {
+        for (const task of window.dbMock) {
+            if (task.user.email == email && task.user.password == password) {
+                response.data = task.user;
+                return response;
+            }
+        }
+    }
+
+    response.status = 401;
+    response.message = "Invalid credentials";
+
+    return response;
+}
 
 function getCompletedTasks(userId) {
     const tasks = {
@@ -79,3 +101,4 @@ function getExpiredTasks(userId) {
 window.getCompletedTasks = getCompletedTasks;
 window.getNotCompletedTasks = getNotCompletedTasks;
 window.getExpiredTasks = getExpiredTasks;
+window.login = login;

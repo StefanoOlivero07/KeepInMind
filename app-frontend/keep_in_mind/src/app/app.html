@@ -1,11 +1,19 @@
 <div id="wrapper" class="min-vh-100 text-white">
-    <app-header></app-header>
-    <h1 class="text-center mt-3 fw-bold">Keep in Mind</h1>
-    <h6 class="text-center mt-1 fw-bold">Organizza i tuoi impegni in modo semplice ed organizzato</h6>
+    @if (isLogged) {
+        <app-header></app-header>
+        <h1 class="text-center mt-3 fw-bold">{{ title }}</h1>
+        <h6 class="text-center mt-1 fw-bold">Organizza i tuoi impegni in modo semplice ed organizzato</h6>
+    
+        <app-not-completed-tasks (isLoggedEvent)="showApplication($event)"></app-not-completed-tasks>
+    
+        <app-completed-task (isLoggedEvent)="showApplication($event)"></app-completed-task>
+    
+        <app-expired-tasks (isLoggedEvent)="showApplication($event)"></app-expired-tasks>
+    }
+    @else {
+        <h1 class="text-center fw-bold pt-3">{{ title }}</h1>
+        <h6 class="text-center mt-1 fw-bold">Organizza i tuoi impegni in modo semplice ed organizzato</h6>
 
-    <app-not-completed-tasks></app-not-completed-tasks>
-
-    <app-completed-task></app-completed-task>
-
-    <app-expired-tasks></app-expired-tasks>
+        <app-login (loginSucceeded)="showApplication($event)"></app-login>
+    }
 </div>

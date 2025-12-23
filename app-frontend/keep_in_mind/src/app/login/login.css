@@ -1,0 +1,17 @@
+#wrapper {
+    width: 350px;
+    padding: 20px;
+    border: 2px solid #000;
+    border-radius: 12px;
+    background-color: #204364;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);   
+}
+
+input, input:focus {
+    background-color: #407ab1;
+    border: none;
+}
+
+span {
+    cursor: pointer;
+}
