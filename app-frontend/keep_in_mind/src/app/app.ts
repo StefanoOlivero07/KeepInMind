@@ -4,10 +4,12 @@ import { CompletedTask } from "./completed-tasks/completed-tasks";
 import { NotCompletedTasks } from "./not-completed-tasks/not-completed-tasks";
 import { ExpiredTasks } from "./expired-tasks/expired-tasks";
 import { Login } from './login/login';
+import { Overview } from "./overview/overview";
+import { Extensions } from "./extensions/extensions";
 
 @Component({
   selector: 'app-root',
-  imports: [Header, CompletedTask, NotCompletedTasks, ExpiredTasks, Login],
+  imports: [Header, CompletedTask, NotCompletedTasks, ExpiredTasks, Login, Overview, Extensions],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

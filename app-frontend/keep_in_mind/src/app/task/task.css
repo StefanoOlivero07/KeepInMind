@@ -10,12 +10,20 @@
     border: 3px solid #007bff;
 }
 
+.card-soon-expiring {
+    border: 3px solid #ffc107;
+}
+
 .card-completed {
     border: 3px solid #28a745;
 }
 
 .card-expired {
     border: 3px solid #dc3545;
+}
+
+.card-body {
+    height: 10px;
 }
 
 .card-title {

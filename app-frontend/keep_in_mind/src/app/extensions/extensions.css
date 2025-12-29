@@ -1,0 +1,27 @@
+#extensions {
+    width: 400px;
+    margin: 0 auto;
+}
+
+#report-section {
+    margin-top: 20px;
+    border: 2px solid #000;
+    border-radius: 12px;
+    background: rgba(26, 50, 94, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 16px;
+}
+
+label {
+    font-size: 11pt;
+}
+
+select {
+    width: 78%;
+}
+
+@media screen and (max-width: 466px) {
+    #extensions {
+        width: 90%;
+    }
+}

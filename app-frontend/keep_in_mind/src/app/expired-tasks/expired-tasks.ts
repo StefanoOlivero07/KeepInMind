@@ -29,7 +29,6 @@ export class ExpiredTasks {
 
     if (response.status === 200) {
       this.tasks = response.data;
-      console.log(this.tasks);
     }
     else
       Message.showError(response.status, response.message);

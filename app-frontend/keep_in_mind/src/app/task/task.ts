@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NumberSymbol } from '@angular/common';
 
 @Component({
   selector: 'app-task',
@@ -15,8 +15,10 @@ export class Task {
 
     if (this.task.completed)
       borderClass = "card-completed";
-    else if (!this.task.completed && !this.isExpired())
+    else if (!this.task.completed && !this.isExpired() && this.dayDiff(new Date(this.task.expiration)) > 3)
       borderClass = "card-not-completed";
+    else if (!this.task.completed && !this.isExpired() && this.dayDiff(new Date(this.task.expiration)) <= 3)
+      borderClass = "card-soon-expiring";
     else
       borderClass = "card-expired"; 
     return borderClass;
@@ -38,6 +40,12 @@ export class Task {
     const day = date.getDate().toString()
     const month = (date.getMonth() + 1).toString();
     const year = date.getFullYear();
-    return `${day}-${month}-${year}`;
+    return `${day}/${month}/${year}`;
+  }
+
+  dayDiff(expirationDate: Date): number {
+    const currentDate = new Date();
+    const timeDiff = expirationDate.getTime() - currentDate.getTime();
+    return Math.ceil(timeDiff / (1000 * 3600 * 24));
   }
 }

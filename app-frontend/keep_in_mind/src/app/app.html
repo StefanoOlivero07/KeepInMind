@@ -1,4 +1,4 @@
-<div id="wrapper" class="min-vh-100 text-white">
+<div id="wrapper" class="min-vh-100 pb-5 text-white">
     @if (isLogged) {
         <app-header></app-header>
         <h1 class="text-center mt-3 fw-bold">{{ title }}</h1>
@@ -9,6 +9,12 @@
         <app-completed-task (isLoggedEvent)="showApplication($event)"></app-completed-task>
     
         <app-expired-tasks (isLoggedEvent)="showApplication($event)"></app-expired-tasks>
+
+        <hr class="border border-danger border-2 opacity-100">
+
+        <app-overview></app-overview>
+
+        <app-extensions></app-extensions>
     }
     @else {
         <h1 class="text-center fw-bold pt-3">{{ title }}</h1>
