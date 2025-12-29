@@ -5,6 +5,7 @@ declare global {
     function getCompletedTasks(userId: string): any;
     function getNotCompletedTasks(userId: string): any;
     function getExpiredTasks(userId: string): any;
+    function getTaskById(taskId: string): any;
 }
 
 @Injectable({
@@ -25,5 +26,9 @@ export class MockRequests {
 
     getExpiredTasks(userId: string): any {
         return getExpiredTasks(userId);
+    }
+
+    getTaskById(taskId: string): any {
+        return getTaskById(taskId);
     }
 }

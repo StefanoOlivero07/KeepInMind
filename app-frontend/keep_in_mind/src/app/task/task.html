@@ -15,7 +15,7 @@
         }
     </ul>
     <ul class="card-body btn-section">
-        <button class="btn btn-info text-white mb-2 w-100">Dettagli</button>
+        <button class="btn btn-info text-white mb-2 w-100" data-bs-toggle="modal" data-bs-target="#detailsModal" (click)="onClickDetails()">Dettagli</button>
         @if (!task.completed) {
             <br>
             <button class="btn btn-success">✓</button>

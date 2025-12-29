@@ -9,7 +9,7 @@
             <div class="row">
                     @for (task of tasks; track $index) {
                         <div class="col-auto">
-                            <app-task [task]="task"></app-task>
+                            <app-task [task]="task" (taskIdEvent)="requestedTaskId($event)"></app-task>
                         </div>
                     }
             </div>

@@ -97,8 +97,33 @@ function getExpiredTasks(userId) {
     return tasks;
 }
 
+function getTaskById(taskId) {
+    const foundTask = {
+        "data": {},
+        "status": 200,
+        "message": ""
+    };
+
+    if (taskId) {
+        for (const task of window.dbMock) {
+            if (task._id == taskId) {
+                foundTask.data = task;
+                return foundTask;
+            }
+        }
+
+        foundTask.status = 404;
+        foundTask.message = "Task not found";
+    }
+    else {
+        task.status = 400;
+        task.message = "Expected taskId parameter";
+    }
+}
+
 // Espone le funzioni globalmente per TypeScript/Angular
 window.getCompletedTasks = getCompletedTasks;
 window.getNotCompletedTasks = getNotCompletedTasks;
 window.getExpiredTasks = getExpiredTasks;
+window.getTaskById = getTaskById;
 window.login = login;

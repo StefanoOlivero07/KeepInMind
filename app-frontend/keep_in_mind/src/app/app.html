@@ -4,11 +4,11 @@
         <h1 class="text-center mt-3 fw-bold">Benvenuto, {{ name }}</h1>
         <h6 class="text-center mt-1 fw-bold">Organizza i tuoi impegni in modo semplice ed organizzato</h6>
     
-        <app-not-completed-tasks (isLoggedEvent)="showApplication($event)"></app-not-completed-tasks>
+        <app-not-completed-tasks (isLoggedEvent)="showApplication($event)" (requestedTaskIdEvent)="sentTaskIdEvent($event)"></app-not-completed-tasks>
     
-        <app-completed-task (isLoggedEvent)="showApplication($event)"></app-completed-task>
+        <app-completed-task (isLoggedEvent)="showApplication($event)" (requestedTaskIdEvent)="sentTaskIdEvent($event)"></app-completed-task>
     
-        <app-expired-tasks (isLoggedEvent)="showApplication($event)"></app-expired-tasks>
+        <app-expired-tasks (isLoggedEvent)="showApplication($event)" (requestedTaskIdEvent)="sentTaskIdEvent($event)"></app-expired-tasks>
 
         <hr class="border border-danger border-2 opacity-100">
 
@@ -22,4 +22,31 @@
 
         <app-login (loginSucceeded)="showApplication($event)"></app-login>
     }
+</div>
+
+<!-- Details modal -->
+<div class="modal fade" id="detailsModal" data-bs-keyboard="false" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content text-white">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="detailsModalLabel">Dettagli</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div><strong>Titolo: </strong>{{ task.title }}</div>
+          <div><strong>Descrizione: </strong>{{ task.description }}</div>
+          <div><strong>Categoria: </strong>{{ task.category }}</div>
+          <div><strong>Creato il: </strong>{{ task.created }}</div>
+          <div><strong>Scadenza: </strong>{{ task.expiration }}</div>
+          @if (task.completed) {
+            <div><strong>Completato il: </strong>{{ task.completedAt }}</div>
+          }
+          <div><strong>Note: </strong>{{ task.notes }}</div>
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Chiudi</button>
+      </div>
+    </div>
+  </div>
 </div>

@@ -11,6 +11,20 @@ h1, h6 {
     animation: fadeIn 2s ease;
 }
 
+.modal-content {
+    background-color: #1c3247 !important;
+    animation: fadeIn 1s ease;
+}
+
+.btn-close {
+    /* Inverte il colore della x del pulsante close */
+    background-color: #f00 !important;
+}
+
+.modal-body > .container-fluid > div {
+    margin-bottom: 8px;
+}
+
 @keyframes fadeIn {
     0% {
         opacity: 0;

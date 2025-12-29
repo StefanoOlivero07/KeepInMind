@@ -1,5 +1,6 @@
 window.dbMock = [
     {
+        "_id": "67661a2f8e4c3b0000000001",
         "title": "Pagare bolletta",
         "description": "Pagare bolletta con il cellulare",
         "category": "spesa",
@@ -19,6 +20,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000002",
         "title": "Comprare regalo compleanno",
         "description": "Regalo per il compleanno di Laura",
         "category": "spesa",
@@ -38,6 +40,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000003",
         "title": "Cinema con amici",
         "description": "Vedere l'ultimo film Marvel",
         "category": "divertimento",
@@ -57,6 +60,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000004",
         "title": "Presentazione progetto Q1",
         "description": "Preparare slide per la presentazione trimestrale",
         "category": "lavoro",
@@ -76,6 +80,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000005",
         "title": "Spesa settimanale",
         "description": "Fare la spesa al supermercato",
         "category": "spesa",
@@ -95,6 +100,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000006",
         "title": "Organizzare festa Capodanno",
         "description": "Pianificare festa di Capodanno a casa",
         "category": "divertimento",
@@ -114,6 +120,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000007",
         "title": "Meeting cliente importante",
         "description": "Incontro con il cliente principale",
         "category": "lavoro",
@@ -133,6 +140,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000008",
         "title": "Palestra",
         "description": "Rinnovare abbonamento palestra",
         "category": "spesa",
@@ -152,6 +160,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000009",
         "title": "Concerto Rock",
         "description": "Biglietti per concerto band preferita",
         "category": "divertimento",
@@ -171,6 +180,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000010",
         "title": "Report mensile",
         "description": "Completare report mensile per il manager",
         "category": "lavoro",
@@ -190,6 +200,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000011",
         "title": "Comprare regali Natale",
         "description": "Acquistare regali di Natale per la famiglia",
         "category": "spesa",
@@ -209,6 +220,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000012",
         "title": "Serata giochi da tavolo",
         "description": "Organizzare serata con amici",
         "category": "divertimento",
@@ -228,6 +240,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000013",
         "title": "Corso formazione",
         "description": "Partecipare al corso di formazione aziendale",
         "category": "lavoro",
@@ -247,6 +260,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000014",
         "title": "Riparare auto",
         "description": "Portare auto dal meccanico",
         "category": "spesa",
@@ -266,6 +280,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000015",
         "title": "Weekend in montagna",
         "description": "Prenotare hotel per weekend sciistico",
         "category": "divertimento",
@@ -285,6 +300,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000016",
         "title": "Revisione contratti",
         "description": "Revisionare contratti clienti per il 2026",
         "category": "lavoro",
@@ -304,6 +320,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000017",
         "title": "Comprare vestito cerimonia",
         "description": "Acquistare vestito per matrimonio",
         "category": "spesa",
@@ -323,6 +340,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000018",
         "title": "Pranzo team",
         "description": "Organizzare pranzo di Natale con il team",
         "category": "lavoro",
@@ -342,6 +360,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000019",
         "title": "Teatro",
         "description": "Vedere spettacolo teatrale",
         "category": "divertimento",
@@ -361,6 +380,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000020",
         "title": "Assicurazione casa",
         "description": "Rinnovare assicurazione casa",
         "category": "spesa",
@@ -380,6 +400,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000021",
         "title": "Budget 2026",
         "description": "Preparare budget per l'anno fiscale 2026",
         "category": "lavoro",
@@ -399,6 +420,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000022",
         "title": "Dentista controllo",
         "description": "Appuntamento semestrale dal dentista",
         "category": "spesa",
@@ -418,6 +440,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000023",
         "title": "Corso inglese",
         "description": "Iscriversi al nuovo corso di inglese",
         "category": "lavoro",
@@ -437,6 +460,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000024",
         "title": "Piscina",
         "description": "Andare in piscina",
         "category": "divertimento",
@@ -456,6 +480,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000025",
         "title": "Backup dati",
         "description": "Effettuare backup completo del sistema",
         "category": "lavoro",
@@ -475,6 +500,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000026",
         "title": "Cambio olio auto",
         "description": "Portare l'auto per il cambio dell'olio",
         "category": "spesa",
@@ -494,6 +520,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000027",
         "title": "Pizza con colleghi",
         "description": "Cena pizza con i colleghi di lavoro",
         "category": "divertimento",
@@ -513,6 +540,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000028",
         "title": "Aggiornare curriculum",
         "description": "Aggiornare il curriculum vitae",
         "category": "lavoro",
@@ -532,6 +560,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000029",
         "title": "Comprare scarpe",
         "description": "Acquistare nuove scarpe sportive",
         "category": "spesa",
@@ -551,6 +580,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000030",
         "title": "Yoga mattutino",
         "description": "Partecipare alle lezioni di yoga",
         "category": "divertimento",
@@ -570,6 +600,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000031",
         "title": "Strategia marketing",
         "description": "Definire strategia marketing Q1 2026",
         "category": "lavoro",
@@ -589,6 +620,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000032",
         "title": "Pulizie di casa",
         "description": "Pulizie approfondite casa",
         "category": "spesa",
@@ -608,6 +640,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000033",
         "title": "Newsletter mensile",
         "description": "Scrivere newsletter per i clienti",
         "category": "lavoro",
@@ -627,6 +660,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000034",
         "title": "Partita calcetto",
         "description": "Partita di calcetto con amici",
         "category": "divertimento",
@@ -646,6 +680,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000035",
         "title": "Audit sicurezza",
         "description": "Completare audit sicurezza informatica",
         "category": "lavoro",
@@ -665,6 +700,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000036",
         "title": "Bollette utility",
         "description": "Pagare bollette luce e gas",
         "category": "spesa",
@@ -684,6 +720,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000037",
         "title": "Mostra d'arte",
         "description": "Visitare mostra d'arte moderna",
         "category": "divertimento",
@@ -703,6 +740,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000038",
         "title": "Tagliando caldaia",
         "description": "Manutenzione annuale caldaia",
         "category": "spesa",
@@ -722,6 +760,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000039",
         "title": "Valutazione dipendenti",
         "description": "Compilare valutazioni annuali dipendenti",
         "category": "lavoro",
@@ -741,6 +780,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000040",
         "title": "Prenotare ristorante",
         "description": "Prenotare ristorante per anniversario",
         "category": "divertimento",
@@ -760,6 +800,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000041",
         "title": "Fare cardio",
         "description": "Allenamento cardio 30 minuti",
         "category": "divertimento",
@@ -779,6 +820,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000042",
         "title": "Riunione stakeholder",
         "description": "Riunione con gli stakeholder del progetto",
         "category": "lavoro",
@@ -798,6 +840,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000043",
         "title": "Comprare libro",
         "description": "Acquistare nuovo libro da leggere",
         "category": "spesa",
@@ -817,6 +860,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000044",
         "title": "Formazione cybersecurity",
         "description": "Completare corso online cybersecurity",
         "category": "lavoro",
@@ -836,6 +880,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000045",
         "title": "Comprare piante",
         "description": "Acquistare piante per il balcone",
         "category": "spesa",
@@ -855,6 +900,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000046",
         "title": "Escape room",
         "description": "Prenotare escape room con amici",
         "category": "divertimento",
@@ -874,6 +920,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000047",
         "title": "Spesa alimentare",
         "description": "Fare spesa per la settimana",
         "category": "spesa",
@@ -893,6 +940,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000048",
         "title": "Onboarding nuovo assunto",
         "description": "Organizzare onboarding per nuovo collega",
         "category": "lavoro",
@@ -912,6 +960,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000049",
         "title": "Karaoke",
         "description": "Serata karaoke con amici",
         "category": "divertimento",
@@ -931,6 +980,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000050",
         "title": "Revisione gomme",
         "description": "Controllare pressione gomme auto",
         "category": "spesa",
@@ -950,6 +1000,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000051",
         "title": "Webinar marketing",
         "description": "Partecipare a webinar su marketing digitale",
         "category": "lavoro",
@@ -969,6 +1020,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000052",
         "title": "Bowling",
         "description": "Pomeriggio bowling con famiglia",
         "category": "divertimento",
@@ -988,6 +1040,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000053",
         "title": "Test software",
         "description": "Completare test suite nuova release",
         "category": "lavoro",
@@ -1007,6 +1060,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000054",
         "title": "Mercatino vintage",
         "description": "Visitare mercatino vintage",
         "category": "divertimento",
@@ -1026,6 +1080,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000055",
         "title": "Comprare tappeto",
         "description": "Acquistare tappeto per salotto",
         "category": "spesa",
@@ -1045,6 +1100,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000056",
         "title": "Ristrutturazione bagno",
         "description": "Preventivo ristrutturazione bagno",
         "category": "spesa",
@@ -1064,6 +1120,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000057",
         "title": "Dichiarazione IVA",
         "description": "Preparare dichiarazione IVA trimestrale",
         "category": "lavoro",
@@ -1083,6 +1140,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000058",
         "title": "Concerto jazz",
         "description": "Biglietti per concerto jazz",
         "category": "divertimento",
@@ -1102,6 +1160,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000059",
         "title": "Fare yoga",
         "description": "Sessione yoga serale",
         "category": "divertimento",
@@ -1121,6 +1180,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000060",
         "title": "Analisi competitor",
         "description": "Analizzare strategie dei competitor",
         "category": "lavoro",
@@ -1140,6 +1200,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000061",
         "title": "Parco avventura",
         "description": "Giornata al parco avventura",
         "category": "divertimento",
@@ -1159,6 +1220,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000062",
         "title": "Implementare API",
         "description": "Sviluppare nuove API REST",
         "category": "lavoro",
@@ -1178,6 +1240,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000063",
         "title": "Comprare elettrodomestico",
         "description": "Acquistare nuovo frullatore",
         "category": "spesa",
@@ -1197,6 +1260,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000064",
         "title": "Lezione chitarra",
         "description": "Lezione settimanale di chitarra",
         "category": "divertimento",
@@ -1216,6 +1280,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000065",
         "title": "Pagare condominio",
         "description": "Pagare spese condominiali",
         "category": "spesa",
@@ -1235,6 +1300,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000066",
         "title": "Revisione processi",
         "description": "Ottimizzare processi aziendali",
         "category": "lavoro",
@@ -1254,6 +1320,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000067",
         "title": "Festa sorpresa",
         "description": "Organizzare festa sorpresa per un amico",
         "category": "divertimento",
@@ -1273,6 +1340,7 @@ window.dbMock = [
         }
     },
     {
+        "_id": "67661a2f8e4c3b0000000068",
         "title": "Visita medica",
         "description": "Visita medica di controllo",
         "category": "spesa",

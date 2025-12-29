@@ -6,6 +6,8 @@ import { ExpiredTasks } from "./expired-tasks/expired-tasks";
 import { Login } from './login/login';
 import { Overview } from "./overview/overview";
 import { Extensions } from "./extensions/extensions";
+import { MockRequests } from './mock.service';
+import { Message } from './message';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +20,10 @@ export class App implements OnInit {
   name: string = "";
 
   isLogged: boolean = false;
+
+  task: any = {};
+
+  constructor (private mockRequests: MockRequests) {}
 
   ngOnInit(): void {
     try {
@@ -37,5 +43,15 @@ export class App implements OnInit {
   onLogout(isLogout: boolean): void {
     this.isLogged = !isLogout;
     localStorage.removeItem("userInfo");
+  }
+
+  sentTaskIdEvent(taskId: string): void {
+    const response = this.mockRequests.getTaskById(taskId);
+
+    if (response.status == 200) {
+      this.task = response.data;
+    }
+    else
+      Message.showError(response.status, response.message);
   }
 }

@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { CommonModule, NumberSymbol } from '@angular/common';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-task',
@@ -9,6 +9,7 @@ import { CommonModule, NumberSymbol } from '@angular/common';
 })
 export class Task {
   @Input() task: any;
+  @Output() taskIdEvent: EventEmitter<string> = new EventEmitter<string>();
 
   getBorderClass() {
     let borderClass: string = "";
@@ -47,5 +48,10 @@ export class Task {
     const currentDate = new Date();
     const timeDiff = expirationDate.getTime() - currentDate.getTime();
     return Math.ceil(timeDiff / (1000 * 3600 * 24));
+  }
+
+  onClickDetails(): void {
+    console.log(this.task);
+    this.taskIdEvent.emit(this.task._id);
   }
 }

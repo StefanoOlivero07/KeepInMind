@@ -12,6 +12,7 @@ import { Task } from '../task/task';
 })
 export class CompletedTask {
   @Output() isLoggedEvent: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() requestedTaskIdEvent: EventEmitter<string> = new EventEmitter<string>();
   tasks: any[] = [];
 
   constructor(private httpService: HttpService, private mockRequests: MockRequests) {}
@@ -32,5 +33,9 @@ export class CompletedTask {
     }
     else
       Message.showError(response.status, response.message);
+  }
+
+  requestedTaskId(taskId: string): void {
+    this.requestedTaskIdEvent.emit(taskId);
   }
 }
