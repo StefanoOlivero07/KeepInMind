@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,13 +8,15 @@ import { CommonModule } from '@angular/common';
   styleUrl: './header.css',
 })
 export class Header {
-  activeLinkId: number = 0;
-  
-  getActiveClass(linkId: number): string {
-    return this.activeLinkId == linkId ? "active" : "";
-  }
+  @Output() logoutEvent: EventEmitter<boolean> = new EventEmitter<boolean>();
+
+  activeSection: number = 0;
 
   onClickLink(event: Event) {
-    this.activeLinkId = parseInt((event.target as HTMLLinkElement).id);
+    this.activeSection = parseInt((event.target as HTMLLinkElement).id);
+  }
+
+  onClickLogout() {
+    this.logoutEvent.emit(true);
   }
 }

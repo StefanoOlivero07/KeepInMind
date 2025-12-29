@@ -1,7 +1,7 @@
 <div id="wrapper" class="min-vh-100 pb-5 text-white">
     @if (isLogged) {
-        <app-header></app-header>
-        <h1 class="text-center mt-3 fw-bold">{{ title }}</h1>
+        <app-header (logoutEvent)="onLogout($event)"></app-header>
+        <h1 class="text-center mt-3 fw-bold">Benvenuto, {{ name }}</h1>
         <h6 class="text-center mt-1 fw-bold">Organizza i tuoi impegni in modo semplice ed organizzato</h6>
     
         <app-not-completed-tasks (isLoggedEvent)="showApplication($event)"></app-not-completed-tasks>

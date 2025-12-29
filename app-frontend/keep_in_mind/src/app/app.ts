@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Header } from "./header/header";
 import { CompletedTask } from "./completed-tasks/completed-tasks";
 import { NotCompletedTasks } from "./not-completed-tasks/not-completed-tasks";
@@ -14,13 +14,17 @@ import { Extensions } from "./extensions/extensions";
   styleUrl: './app.css'
 })
 export class App implements OnInit {
-  protected readonly title = "Keep in Mind";
+  protected readonly title: string = "Keep in Mind";
+  name: string = "";
 
   isLogged: boolean = false;
 
   ngOnInit(): void {
     try {
-      this.isLogged = !!localStorage.getItem("userInfo");
+      const userInfo = JSON.parse(localStorage.getItem("userInfo")!);
+      
+      this.isLogged = !!userInfo;
+      this.name = userInfo.name;
     } catch {
       this.isLogged = false;
     }
@@ -28,5 +32,10 @@ export class App implements OnInit {
 
   showApplication(loginSucceeded: boolean): void {
     this.isLogged = loginSucceeded;
+  }
+
+  onLogout(isLogout: boolean): void {
+    this.isLogged = !isLogout;
+    localStorage.removeItem("userInfo");
   }
 }

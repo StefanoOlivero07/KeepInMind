@@ -8,19 +8,19 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a id="0" class="nav-link" [ngClass]="getActiveClass(0)" href="#not-completed-tasks" (click)="onClickLink($event)">Da completare</a>
+                    <a id="0" class="nav-link" [ngClass]="{'active': activeSection == 0}" href="#not-completed-tasks" (click)="onClickLink($event)">Da completare</a>
                 </li>
                 <li class="nav-item">
-                    <a id="1" class="nav-link" [ngClass]="getActiveClass(1)" href="#completed-tasks">Completati</a>
+                    <a id="1" class="nav-link" [ngClass]="{'active': activeSection == 1}" href="#completed-tasks" (click)="onClickLink($event)">Completati</a>
                 </li>
                 <li class="nav-item">
-                    <a id="2" class="nav-link" [ngClass]="getActiveClass(2)" href="#expired-tasks">Scaduti</a>
+                    <a id="2" class="nav-link" [ngClass]="{'active': activeSection == 2}" href="#expired-tasks" (click)="onClickLink($event)">Scaduti</a>
                 </li>
                 <li class="nav-item">
-                    <a id="3" class="nav-link" [ngClass]="getActiveClass(3)" href="#">Overview</a>
+                    <a id="3" class="nav-link" [ngClass]="{'active': activeSection == 3}" href="#" (click)="onClickLink($event)">Overview</a>
                 </li>
                 <li class="nav-item">
-                    <a id="4" class="nav-link" [ngClass]="getActiveClass(4)" href="#">Estensioni</a>
+                    <a id="4" class="nav-link" [ngClass]="{'active': activeSection == 4}" href="#" (click)="onClickLink($event)">Estensioni</a>
                 </li>
             </ul>
             <ul class="navbar-nav">
@@ -28,7 +28,7 @@
                     <button class="btn btn-success me-2">
                         Nuova Task
                     </button>
-                    <button class="btn btn-danger">
+                    <button class="btn btn-danger" (click)="onClickLogout()">
                         Logout
                         <img width="20" height="20" [src]="'https://img.icons8.com/fluency/48/exit--v1.png'" alt="logout"/>
                     </button>
