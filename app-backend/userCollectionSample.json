@@ -1,0 +1,83 @@
+[
+    {
+        "_id": {
+            "$oid": "67661a2f8e4c3b1234567890"
+        },
+        "name": "Mario",
+        "surname": "Rossi",
+        "email": "mario.rossi@example.com",
+        "password": "5f4dcc35b5aa765d61d8327deb882cf99"
+    },
+    {
+        "_id": {
+            "$oid": "67661a2f8e4c3b1234567891"
+        },
+        "name": "Giulia",
+        "surname": "Bianchi",
+        "email": "giulia.bianchi@example.com",
+        "password": "e10adc3949ba59abbe56e057f20f883e"
+    },
+    {
+        "_id": {
+            "$oid": "67661a2f8e4c3b1234567892"
+        },
+        "name": "Luca",
+        "surname": "Verdi",
+        "email": "luca.verdi@example.com",
+        "password": "25d55ad283aa400af464c76d713c07ad"
+    },
+    {
+        "_id": {
+            "$oid": "67661a2f8e4c3b1234567893"
+        },
+        "name": "Alessandro",
+        "surname": "Ferrari",
+        "email": "alessandro.ferrari@example.com",
+        "password": "098f6bcd4621d373cade4e832627b4f6"
+    },
+    {
+        "_id": {
+            "$oid": "67661a2f8e4c3b1234567894"
+        },
+        "name": "Sofia",
+        "surname": "Romano",
+        "email": "sofia.romano@example.com",
+        "password": "827ccb0eea8a706c4c34a16891f84e7b"
+    },
+    {
+        "_id": {
+            "$oid": "67661a2f8e4c3b1234567895"
+        },
+        "name": "Francesca",
+        "surname": "Colombo",
+        "email": "francesca.colombo@example.com",
+        "password": "5d41402abc4b2a76b9719d911017c592"
+    },
+    {
+        "_id": {
+            "$oid": "67661a2f8e4c3b1234567896"
+        },
+        "name": "Marco",
+        "surname": "Ricci",
+        "email": "marco.ricci@example.com",
+        "password": "7c6a180b36896a0a8c02787eeafb0e4c"
+    },
+    {
+        "_id": {
+            "$oid": "67661a2f8e4c3b1234567897"
+        },
+        "name": "Elena",
+        "surname": "Esposito",
+        "email": "elena.esposito@example.com",
+        "password": "6cb75f652a9b52798eb6cf2201057c73"
+    },
+    {
+        "_id": {
+            "$oid": "67661a2f8e4c3b1234567898"
+        },
+        "name": "Andrea",
+        "surname": "Gallo",
+        "email": "andrea.gallo@example.com",
+        "password": "aa47f8215c6f30a0dcdb2a36a9f4168e"
+    }
+]
