@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 
 declare global {
     function login(email: string, password: string): any;
+    function getAllTasks(userId: string): any;
     function getCompletedTasks(userId: string): any;
     function getNotCompletedTasks(userId: string): any;
     function getExpiredTasks(userId: string): any;
@@ -14,6 +15,10 @@ declare global {
 export class MockRequests {
     login(email: string, password: string): any {
         return login(email, password);
+    }
+
+    getAllTasks(userId: string): any {
+        return getAllTasks(userId);
     }
 
     getCompletedTasks(userId: string): any {

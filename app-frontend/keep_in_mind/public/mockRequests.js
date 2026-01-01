@@ -22,6 +22,34 @@ function login(email, password) {
     return response;
 }
 
+function getAllTasks(userId) {
+    const tasks = {
+        "data": {
+            "completed": 0,
+            "notCompleted": 0,
+            "expired": 0
+        },
+        "status": 200,
+        "message": ""
+    };
+
+    if (userId) {
+        for (const task of window.dbMock) {
+            if (task.user._id.$oid == userId && task.completed)
+                tasks.data.completed++;
+            else if (task.user._id.$oid == userId && !task.completed && new Date(task.expiration) >= new Date())
+                tasks.data.notCompleted++;
+            else if (task.user._id.$oid == userId && !task.completed && new Date(task.expiration) < new Date())
+                tasks.data.expired++;
+        }
+    } else {
+        tasks.status = 400;
+        tasks.message = "Expected userId parameter.";
+    }
+
+    return tasks;
+} 
+
 function getCompletedTasks(userId) {
     const tasks = {
         "data": [],

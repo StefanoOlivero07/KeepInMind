@@ -1,1 +1,15 @@
-<p>overview works!</p>
+<div id="overview">
+    <h5 class="text-center mb-4">↪ Riepilogo 📊</h5>
+
+    <div class="overview-content">
+        <div class="chart-container">
+            <canvas id="chartMark"></canvas>
+        </div>
+        <div class="taskInformations">
+            <h5 class="text-black">➡️ Riepilogo task</h5>
+            <p class="text-primary"><b>Task da completare: </b>{{ notCompleted }}</p>
+            <p class="text-success"><b>Task completati: </b>{{ completed }}</p>
+            <p class="text-danger"><b>Task scaduti: </b>{{ expired }}</p>
+        </div>
+    </div>
+</div>
