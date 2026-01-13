@@ -2,12 +2,12 @@
 
 // ------ Import ------
 import http from "http";
-import fs from "fs";
 import path from "path";
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import { MongoClient, MongoError, ObjectId } from "mongodb";
+import { Message } from "./message";
 
 // ------ Configurations ------
 const app: express.Express = express();
@@ -30,11 +30,13 @@ const allowedOrigins = process.env.CORS_ORIGINS?.split(",")
 const dbName: string = process.env.DB_NAME!;
 const client: MongoClient = new MongoClient(connectionString);
 
+const message: Message = new Message();
+
 // ------ Server creation ------
 const server: http.Server = http.createServer(app);
 
 server.listen(port, () => {
-    console.info("Server is listening on port " + port);
+    console.info(message.SERVER_LISTENING + " " + port);
 });
 
 // ------ Middlewares ------
@@ -59,12 +61,12 @@ app.use("/", (req, res, next) => {
 });
 
 // ------ Dynamic resources ------
-// login (simple)
+// Login (simple)
 app.post("/api/login", async (req, res, next) => {
 
     if (!req.body.email || !req.body.password) {
-        console.error("Missing parameteres");
-        res.status(400).send("Missing parameters");
+        console.error(message.MISSING_PARAMETERS);
+        res.status(400).send(message.MISSING_PARAMETERS);
         return;
     }
 
@@ -79,15 +81,15 @@ app.post("/api/login", async (req, res, next) => {
         return;
     }
 
-    const collection = client.db(dbName).collection(process.env.COLLECTION_NAME!);
-    const cmd = collection.findOne({"user.email": userEmail, "user.password": userPassword}, {projection: {"user._id": 1, "user.name": 1, "user.surname": 1, "_id": 0}});
+    const collection = client.db(dbName).collection(process.env.USER_COLLECTION_NAME!);
+    const cmd = collection.findOne({"email": userEmail, "password": userPassword}, {projection: {"_id": 1, "name": 1, "surname": 1}});
 
     cmd
         .then((data) => {
             if (data)
                 res.send(data);
             else
-                res.status(401).send("Invalid credentials");
+                res.status(401).send(message.INVALID_CREDENTIALS);
         })
         .catch((err: MongoError) => {
             console.error(err.message);
@@ -98,13 +100,121 @@ app.post("/api/login", async (req, res, next) => {
         });
 });
 
+// Create new user
+app.post("/api/createUser", async (req, res, next) => {
+    if (!req.body.newUser) {
+        console.log(message.MISSING_NEWUSER_PARAMETER);
+        res.status(400).send(message.MISSING_NEWUSER_PARAMETER);
+        return;
+    }
+
+    const result: string = await connectClient();
+    
+    if (result != "ok") {
+        console.error(result);
+        res.status(503).send(result);
+        return;
+    }
+
+    const collection = client.db(dbName).collection(process.env.USER_COLLECTION_NAME!);
+    const cmd = collection.insertOne(req.body.newUser);
+
+    cmd
+        .then((data) => {
+            res.send(data);
+        })
+        .catch((err: MongoError) => {
+            console.error(err.message);
+            res.status(500).send(err.message);
+        })
+        .finally(() => {
+            client.close();
+        });
+});
+
+// Get all tasks
+app.get("/api/getAllTasks", async (req, res, next) => {
+
+    if (!req.query.userId) {
+        console.log(message.MISSING_USERID_PARAMETER);
+        res.status(400).send(message.MISSING_USERID_PARAMETER);
+        return;
+    }
+
+    const userId: ObjectId = new ObjectId(req.query.userId!.toString());
+
+    const result: string = await connectClient();
+
+    const response: any = {
+        "notCompleted": [],
+        "completed": [],
+        "expired": []
+    };
+
+    if (result != "ok") {
+        console.error(result);
+        res.status(503).send(result);
+        return;
+    }
+
+    const collection = client.db(dbName).collection(process.env.TASK_COLLECTION_NAME!);
+    const cmd1 = collection.find({"user._id": userId, "completed": true})
+    .project({"title": 1})
+    .toArray();
+
+    cmd1
+        .then((data) => {
+            response.completed.push(data);
+
+            const cmd2 = collection.find({"user._id": userId, "completed": false, "expiration": {"$gte": new Date().toLocaleDateString()}})
+            .project({"title": 1})
+            .toArray();
+
+            cmd2
+                .then((data) => {
+                    response.notCompleted.push(data);
+
+                    const cmd3 = collection.find({"user._id": userId, "completed": false, "expiration": {"$lt": new Date().toLocaleDateString()}})
+                    .project({"title": 1})
+                    .toArray();
+
+                    cmd3
+                        .then((data) => {
+                            response.expired.push(data);
+
+                            res.send(response);
+                        })
+                        .catch((err: MongoError) => {
+                            console.error(err.message);
+                            res.status(500).send(err.message);
+                            return;
+                        })
+                        .finally(() => {
+                            client.close();
+                        });
+                })
+                .catch((err: MongoError) => {
+                    console.error(err.message);
+                    res.status(500).send(err.message);
+                    client.close();
+                    return;
+                });
+        })
+        .catch((err: MongoError) => {
+            console.error(err.message);
+            res.status(500).send(err.message);
+            client.close();
+            return;
+        });
+});
+
 
 // Get completed tasks
 app.get("/api/getCompletedTasks", async (req, res, next) => {
     
     if (!req.query.userId) {
-        console.error("Missing userId parameter");
-        res.status(400).send("Missing userId parameter");
+        console.error(message.MISSING_USERID_PARAMETER);
+        res.status(400).send(message.MISSING_USERID_PARAMETER);
         return;
     }
 
@@ -118,7 +228,7 @@ app.get("/api/getCompletedTasks", async (req, res, next) => {
         return;
     }
 
-    const collection = client.db(dbName).collection(process.env.COLLECTION_NAME!);
+    const collection = client.db(dbName).collection(process.env.TASK_COLLECTION_NAME!);
     const cmd = collection.find({"user._id": userId, "completed": true})
         .project({"title": 1, "description": 1, "category": 1, "expiration": 1, "_id": 0})
         .sort({"expiration": 1})
@@ -141,8 +251,8 @@ app.get("/api/getCompletedTasks", async (req, res, next) => {
 app.get("/api/getNotCompletedTasks", async (req, res, next) => {
 
     if (!req.query.userId) {
-        console.error("Missing userId parameter");
-        res.status(400).send("Missing userId parameter");
+        console.error(message.MISSING_USERID_PARAMETER);
+        res.status(400).send(message.MISSING_USERID_PARAMETER);
         return;
     }
 
@@ -155,8 +265,8 @@ app.get("/api/getNotCompletedTasks", async (req, res, next) => {
         return;
     }
 
-    const collection = client.db(dbName).collection(process.env.COLLECTION_NAME!);
-    const cmd = collection.find({"user._id": userId, "completed": false})
+    const collection = client.db(dbName).collection(process.env.TASK_COLLECTION_NAME!);
+    const cmd = collection.find({"user._id": userId, "completed": false, "expiration": {"$gte": new Date().toLocaleDateString()}})
         .project({"title": 1, "description": 1, "category": 1, "expiration": 1, "_id": 0})
         .sort({"expiration": 1})
         .toArray();
@@ -178,8 +288,8 @@ app.get("/api/getNotCompletedTasks", async (req, res, next) => {
 app.get("/api/getExpiredTasks", async (req, res, next) => {
 
     if (!req.query.userId) {
-        console.error("Missing userId parameter");
-        res.status(400).send("Missing userId parameter");
+        console.error(message.MISSING_USERID_PARAMETER);
+        res.status(400).send(message.MISSING_USERID_PARAMETER);
         return;
     }
     
@@ -192,7 +302,7 @@ app.get("/api/getExpiredTasks", async (req, res, next) => {
         return;
     }
 
-    const collection = client.db(dbName).collection(process.env.COLLECTION_NAME!);
+    const collection = client.db(dbName).collection(process.env.TASK_COLLECTION_NAME!);
     const cmd = collection.find({"user._id": userId, "expiration": {"$lt": new Date().toLocaleDateString()}, "completed": false})
         .project({"title": 1, "description": 1, "category": 1, "expiration": 1, "_id": 0})
         .sort({"expiration": 1})
@@ -215,8 +325,8 @@ app.get("/api/getExpiredTasks", async (req, res, next) => {
 app.get("/api/getTaskById", async (req, res, next) => {
 
     if (!req.query.taskId) {
-        console.error("Missing taskId parameter");
-        res.status(400).send("Missing taskId parameter");
+        console.error(message.MISSING_TASKID_PARAMETER);
+        res.status(400).send(message.MISSING_TASKID_PARAMETER);
         return;
     }
 
@@ -229,8 +339,75 @@ app.get("/api/getTaskById", async (req, res, next) => {
         return;
     }
 
-    const collection = client.db(dbName).collection(process.env.COLLECTION_NAME!);
+    const collection = client.db(dbName).collection(process.env.TASK_COLLECTION_NAME!);
     const cmd = collection.findOne({"_id": taskId}, {projection: {"title": 1, "description": 1, "category": 1, "created": 1, "expiration": 1, "notes": 1, "completed": 1, "_id": 0}});
+
+    cmd
+        .then((data) => {
+            res.send(data);
+        })
+        .catch((err: MongoError) => {
+            console.error(err.message);
+            res.status(500).send(err.message);
+        })
+        .finally(() => {
+            client.close();
+        });
+});
+
+// New task
+app.post("/api/createTask", async (req, res, next) => {
+
+    if (!req.body.newTask) {
+        console.log(message.MISSING_NEWTASK_PARAMETER);
+        res.status(400).send(message.MISSING_NEWTASK_PARAMETER);
+        return;
+    }
+
+    const result: string = await connectClient();
+
+    if (result != "ok") {
+        console.error(result);
+        res.status(503).send(result);
+        return;
+    }
+
+    const collection = client.db(dbName).collection(process.env.TASK_COLLECTION_NAME!);
+    const cmd = collection.insertOne(req.body.newTask);
+
+    cmd
+        .then((data) => {
+            res.send(data);
+        })
+        .catch((err: MongoError) => {
+            console.error(err.message);
+            res.status(500).send(err.message);
+        })
+        .finally(() => {
+            client.close();
+        });
+});
+
+// Delete task
+app.delete("/api/deleteTask", async (req, res, next) => {
+
+    if (!req.body.taskId) {
+        console.log(message.MISSING_TASKID_PARAMETER);
+        res.status(400).send(message.MISSING_TASKID_PARAMETER);
+        return;
+    }
+
+    const result: string = await connectClient();
+    const taskId: ObjectId = new ObjectId(req.body.taskId!.toString());
+
+    if (result != "ok") {
+        console.error(result);
+        res.status(503).send(result);
+        return;
+    }
+
+    const collection = client.db(dbName).collection(process.env.TASK_COLLECTION_NAME!);
+    const cmd = collection.deleteOne({"_id": taskId});
 
     cmd
         .then((data) => {
@@ -248,7 +425,7 @@ app.get("/api/getTaskById", async (req, res, next) => {
 // ------ Default route ------
 app.use("/", (req, res, next) => {
     res.status(404);
-    res.send("Resource not found");
+    res.send(message.RESOURCE_NOT_FOUND);
 });
 
 // ------ Functions ------
