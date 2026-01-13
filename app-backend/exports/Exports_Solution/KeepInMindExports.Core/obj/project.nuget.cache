@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "7SCjjUrUvQc=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Utente\\Documents\\GitHub\\KeepInMind\\app-backend\\exports\\Exports_Solution\\KeepInMindExports.Core\\KeepInMindExports.Core.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Utente\\.nuget\\packages\\docx\\5.0.0\\docx.5.0.0.nupkg.sha512",
+    "C:\\Users\\Utente\\.nuget\\packages\\skiasharp\\2.88.8\\skiasharp.2.88.8.nupkg.sha512",
+    "C:\\Users\\Utente\\.nuget\\packages\\skiasharp.nativeassets.macos\\2.88.8\\skiasharp.nativeassets.macos.2.88.8.nupkg.sha512",
+    "C:\\Users\\Utente\\.nuget\\packages\\skiasharp.nativeassets.win32\\2.88.8\\skiasharp.nativeassets.win32.2.88.8.nupkg.sha512",
+    "C:\\Users\\Utente\\.nuget\\packages\\system.io.packaging\\4.5.0\\system.io.packaging.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
