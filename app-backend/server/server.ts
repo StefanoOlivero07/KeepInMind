@@ -422,6 +422,134 @@ app.delete("/api/deleteTask", async (req, res, next) => {
         });
 });
 
+// Export completed tasks
+app.post("/api/exportCompletedTasks", async (req, res, next) => {
+    
+    const result: string = await connectClient();
+
+    if (result != "ok") {
+        console.error(result);
+        res.status(503).send(result);
+        return;
+    }
+
+    const collection = client.db(dbName).collection(process.env.TASK_COLLECTION_NAME!);
+    const cmd = collection.find({"completed": true})
+    .project({"_id": 1, "title": 1, "description": 1, "category": 1, "expiration": 1})
+    .toArray();
+
+    cmd
+        .then(async (data) => {
+            try {
+                const tasks = req.body;
+
+                const response = await fetch(
+                    `${process.env.ASP_EXPORTS_URL}/api/exports/completedTasks`,
+                    {
+                        method: 'POST',
+                        headers: {
+                        'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(tasks)
+                    }
+                );
+
+                if (!response.ok) {
+                    return res.status(response.status).send('Error from ASP microservice');
+                }
+
+                const buffer = Buffer.from(await response.arrayBuffer());
+
+                res.setHeader(
+                    "Content-Type",
+                    "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                );
+
+                res.setHeader(
+                    "Content-Disposition",
+                    "attachment; filename=\"completed-tasks.docx\""
+                );
+
+                res.send(buffer);
+            } 
+            catch (error) {
+                console.error(error);
+                res.status(500).send("Error during export");
+            }
+        })
+        .catch((err: MongoError) => {
+            console.error(err.message);
+            res.status(500).send(err.message);
+        })
+        .finally(() => {
+            client.close();
+        });
+});
+
+// Export not completed tasks
+app.post("/api/exportNotCompletedTasks", async (req, res, next) => {
+    
+    const result: string = await connectClient();
+
+    if (result != "ok") {
+        console.error(result);
+        res.status(503).send(result);
+        return;
+    }
+
+    const collection = client.db(dbName).collection(process.env.TASK_COLLECTION_NAME!);
+    const cmd = collection.find({"completed": false, "expiration": {"$gte": new Date().toLocaleDateString()}})
+    .project({"_id": 1, "title": 1, "description": 1, "category": 1, "expiration": 1})
+    .toArray();
+
+    cmd
+        .then(async (data) => {
+            try {
+                const tasks = req.body;
+
+                const response = await fetch(
+                    `${process.env.ASP_EXPORTS_URL}/api/exports/notCompletedTasks`,
+                    {
+                        method: 'POST',
+                        headers: {
+                        'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(tasks)
+                    }
+                );
+
+                if (!response.ok) {
+                    return res.status(response.status).send('Error from ASP microservice');
+                }
+
+                const buffer = Buffer.from(await response.arrayBuffer());
+
+                res.setHeader(
+                    "Content-Type",
+                    "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                );
+
+                res.setHeader(
+                    "Content-Disposition",
+                    "attachment; filename=\"not-completed-tasks.docx\""
+                );
+
+                res.send(buffer);
+            } 
+            catch (error) {
+                console.error(error);
+                res.status(500).send("Error during export");
+            }
+        })
+        .catch((err: MongoError) => {
+            console.error(err.message);
+            res.status(500).send(err.message);
+        })
+        .finally(() => {
+            client.close();
+        });
+});
+
 // ------ Default route ------
 app.use("/", (req, res, next) => {
     res.status(404);
