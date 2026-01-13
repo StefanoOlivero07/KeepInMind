@@ -12,6 +12,14 @@
         public string? Surname { get => _surname; set => _surname = value; }
         public string? Email { get => _email; set => _email = value; }
 
+        public User(int id, string name, string surname, string email) 
+        {
+            Id = id;
+            Name = name;
+            Surname = surname;
+            Email = email;
+        }
+
         public override string ToString()
         {
             return $"{_name} - {_surname} - {_email}";

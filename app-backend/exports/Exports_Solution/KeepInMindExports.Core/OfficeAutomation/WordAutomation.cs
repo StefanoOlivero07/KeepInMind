@@ -1,5 +1,4 @@
-﻿using KeepInMindExports.Core.Models;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 using Xceed.Document.NET;
 using Xceed.Words.NET;
 
@@ -7,7 +6,7 @@ namespace KeepInMindExports.Core.OfficeAutomation
 {
     public static class WordAutomation
     {
-        public static byte[] GetTasksDocxBytes(List<Models.Task> tasks, User user, string templatePath, bool completedTasks)
+        public static byte[] GetTasksDocxBytes(List<Models.Task> tasks, string templatePath, bool completedTasks)
         {
             using var memoryStream = new MemoryStream();
             using (var document = DocX.Load(templatePath))
@@ -15,10 +14,8 @@ namespace KeepInMindExports.Core.OfficeAutomation
                 /*
                 ---------- User and document informations ----------
                 */
-                ReplaceSimpleTextInDocument(document, "{userName}", user.Name);
-                ReplaceSimpleTextInDocument(document, "{userSurname}", user.Surname);
-                ReplaceSimpleTextInDocument(document, "{userEmail}", user.Email);
-                ReplaceSimpleTextInDocument(document, "{documentCreation}", new DateTime().ToString("dd-mm-yyyy"));
+                ReplaceSimpleTextInDocument(document, "{userName}", tasks[0].UserName);
+                ReplaceSimpleTextInDocument(document, "{documentCreation}", DateTime.Now.ToString("dd-MM-yyyy"));
 
                 /*
                 ---------- Tasks informations ----------
@@ -29,15 +26,16 @@ namespace KeepInMindExports.Core.OfficeAutomation
                 foreach (var task in tasks)
                 {
                     newRow = table.InsertRow();
-                    newRow.Cells[0].Paragraphs[0].Append(task.Title);
-                    newRow.Cells[1].Paragraphs[0].Append(task.Description);
-                    newRow.Cells[2].Paragraphs[0].Append(task.Category);
-                    newRow.Cells[3].Paragraphs[0].Append(task.Created);
+                    newRow.Cells[0].Paragraphs[0].Append(task.Title).Alignment = Alignment.center;
+                    newRow.Cells[1].Paragraphs[0].Append(task.Description).Alignment = Alignment.center;
+                    newRow.Cells[2].Paragraphs[0].Append(task.Category).Alignment = Alignment.center;
+                    newRow.Cells[3].Paragraphs[0].Append(task.Created).Alignment = Alignment.center;
                     if (completedTasks)
-                        newRow.Cells[4].Paragraphs[0].Append(task.CompletedAt);
+                        newRow.Cells[4].Paragraphs[0].Append(task.CompletedAt).Alignment = Alignment.center;
                     else
-                        newRow.Cells[4].Paragraphs[0].Append(task.Expiration);
-                    newRow.Cells[5].Paragraphs[0].Append(task.Notes);
+                        newRow.Cells[4].Paragraphs[0].Append(task.Expiration).Alignment = Alignment.center;
+                    newRow.Cells[5].Paragraphs[0].Append(task.Notes).Alignment = Alignment.center;
+                    
                 }
 
                 document.SaveAs(memoryStream);

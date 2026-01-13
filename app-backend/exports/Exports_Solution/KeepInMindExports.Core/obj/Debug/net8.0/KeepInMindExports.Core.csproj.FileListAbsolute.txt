@@ -11,3 +11,5 @@ C:\Users\Utente\Documents\GitHub\KeepInMind\app-backend\exports\Exports_Solution
 C:\Users\Utente\Documents\GitHub\KeepInMind\app-backend\exports\Exports_Solution\KeepInMindExports.Core\obj\Debug\net8.0\refint\KeepInMindExports.Core.dll
 C:\Users\Utente\Documents\GitHub\KeepInMind\app-backend\exports\Exports_Solution\KeepInMindExports.Core\obj\Debug\net8.0\KeepInMindExports.Core.pdb
 C:\Users\Utente\Documents\GitHub\KeepInMind\app-backend\exports\Exports_Solution\KeepInMindExports.Core\obj\Debug\net8.0\ref\KeepInMindExports.Core.dll
+C:\Users\Utente\Documents\GitHub\KeepInMind\app-backend\exports\Exports_Solution\KeepInMindExports.Core\bin\Debug\net8.0\Templates\CompletedTasks.docx
+C:\Users\Utente\Documents\GitHub\KeepInMind\app-backend\exports\Exports_Solution\KeepInMindExports.Core\bin\Debug\net8.0\Templates\NotCompletedTasks.docx
