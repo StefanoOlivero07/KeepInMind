@@ -1,0 +1,13 @@
+C:\Users\Utente\Documents\GitHub\KeepInMind\app-backend\exports\Exports_Solution\KeepInMindExports.Core\obj\Debug\net8.0\KeepInMindExports.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Utente\Documents\GitHub\KeepInMind\app-backend\exports\Exports_Solution\KeepInMindExports.Core\obj\Debug\net8.0\KeepInMindExports.Core.AssemblyInfoInputs.cache
+C:\Users\Utente\Documents\GitHub\KeepInMind\app-backend\exports\Exports_Solution\KeepInMindExports.Core\obj\Debug\net8.0\KeepInMindExports.Core.AssemblyInfo.cs
+C:\Users\Utente\Documents\GitHub\KeepInMind\app-backend\exports\Exports_Solution\KeepInMindExports.Core\obj\Debug\net8.0\KeepInMindExports.Core.csproj.CoreCompileInputs.cache
+C:\Users\Utente\Documents\GitHub\KeepInMind\app-backend\exports\Exports_Solution\KeepInMindExports.Core\obj\Debug\net8.0\KeepInMindExports.Core.sourcelink.json
+C:\Users\Utente\Documents\GitHub\KeepInMind\app-backend\exports\Exports_Solution\KeepInMindExports.Core\bin\Debug\net8.0\KeepInMindExports.Core.deps.json
+C:\Users\Utente\Documents\GitHub\KeepInMind\app-backend\exports\Exports_Solution\KeepInMindExports.Core\bin\Debug\net8.0\KeepInMindExports.Core.dll
+C:\Users\Utente\Documents\GitHub\KeepInMind\app-backend\exports\Exports_Solution\KeepInMindExports.Core\bin\Debug\net8.0\KeepInMindExports.Core.pdb
+C:\Users\Utente\Documents\GitHub\KeepInMind\app-backend\exports\Exports_Solution\KeepInMindExports.Core\obj\Debug\net8.0\KeepInMindExports.Core.csproj.AssemblyReference.cache
+C:\Users\Utente\Documents\GitHub\KeepInMind\app-backend\exports\Exports_Solution\KeepInMindExports.Core\obj\Debug\net8.0\KeepInMindExports.Core.dll
+C:\Users\Utente\Documents\GitHub\KeepInMind\app-backend\exports\Exports_Solution\KeepInMindExports.Core\obj\Debug\net8.0\refint\KeepInMindExports.Core.dll
+C:\Users\Utente\Documents\GitHub\KeepInMind\app-backend\exports\Exports_Solution\KeepInMindExports.Core\obj\Debug\net8.0\KeepInMindExports.Core.pdb
+C:\Users\Utente\Documents\GitHub\KeepInMind\app-backend\exports\Exports_Solution\KeepInMindExports.Core\obj\Debug\net8.0\ref\KeepInMindExports.Core.dll

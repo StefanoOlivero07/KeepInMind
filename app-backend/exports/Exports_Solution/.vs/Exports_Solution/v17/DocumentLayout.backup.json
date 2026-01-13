@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Utente\\Documents\\GitHub\\KeepInMind\\app-backend\\exports\\Exports_Solution\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E446937A-CD18-413C-9DFB-D789777BC2EA}|KeepInMindExports.Core\\KeepInMindExports.Core.csproj|c:\\users\\utente\\documents\\github\\keepinmind\\app-backend\\exports\\exports_solution\\keepinmindexports.core\\officeautomation\\wordautomation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E446937A-CD18-413C-9DFB-D789777BC2EA}|KeepInMindExports.Core\\KeepInMindExports.Core.csproj|solutionrelative:keepinmindexports.core\\officeautomation\\wordautomation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E446937A-CD18-413C-9DFB-D789777BC2EA}|KeepInMindExports.Core\\KeepInMindExports.Core.csproj|c:\\users\\utente\\documents\\github\\keepinmind\\app-backend\\exports\\exports_solution\\keepinmindexports.core\\models\\task.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E446937A-CD18-413C-9DFB-D789777BC2EA}|KeepInMindExports.Core\\KeepInMindExports.Core.csproj|solutionrelative:keepinmindexports.core\\models\\task.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E446937A-CD18-413C-9DFB-D789777BC2EA}|KeepInMindExports.Core\\KeepInMindExports.Core.csproj|c:\\users\\utente\\documents\\github\\keepinmind\\app-backend\\exports\\exports_solution\\keepinmindexports.core\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E446937A-CD18-413C-9DFB-D789777BC2EA}|KeepInMindExports.Core\\KeepInMindExports.Core.csproj|solutionrelative:keepinmindexports.core\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\Utente\\Documents\\GitHub\\KeepInMind\\app-backend\\exports\\Exports_Solution\\KeepInMindExports.Core\\Models\\User.cs",
+              "RelativeDocumentMoniker": "KeepInMindExports.Core\\Models\\User.cs",
+              "ToolTip": "C:\\Users\\Utente\\Documents\\GitHub\\KeepInMind\\app-backend\\exports\\Exports_Solution\\KeepInMindExports.Core\\Models\\User.cs",
+              "RelativeToolTip": "KeepInMindExports.Core\\Models\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-13T12:48:42.051Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Task.cs",
+              "DocumentMoniker": "C:\\Users\\Utente\\Documents\\GitHub\\KeepInMind\\app-backend\\exports\\Exports_Solution\\KeepInMindExports.Core\\Models\\Task.cs",
+              "RelativeDocumentMoniker": "KeepInMindExports.Core\\Models\\Task.cs",
+              "ToolTip": "C:\\Users\\Utente\\Documents\\GitHub\\KeepInMind\\app-backend\\exports\\Exports_Solution\\KeepInMindExports.Core\\Models\\Task.cs",
+              "RelativeToolTip": "KeepInMindExports.Core\\Models\\Task.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-13T11:28:36.111Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "WordAutomation.cs",
+              "DocumentMoniker": "C:\\Users\\Utente\\Documents\\GitHub\\KeepInMind\\app-backend\\exports\\Exports_Solution\\KeepInMindExports.Core\\OfficeAutomation\\WordAutomation.cs",
+              "RelativeDocumentMoniker": "KeepInMindExports.Core\\OfficeAutomation\\WordAutomation.cs",
+              "ToolTip": "C:\\Users\\Utente\\Documents\\GitHub\\KeepInMind\\app-backend\\exports\\Exports_Solution\\KeepInMindExports.Core\\OfficeAutomation\\WordAutomation.cs",
+              "RelativeToolTip": "KeepInMindExports.Core\\OfficeAutomation\\WordAutomation.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAC0AAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-13T11:35:01.169Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
