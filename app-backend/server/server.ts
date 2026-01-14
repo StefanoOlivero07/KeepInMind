@@ -461,7 +461,7 @@ app.post("/api/exportCompletedTasks", async (req, res, next) => {
                 );
 
                 if (!response.ok) {
-                    return res.status(response.status).send('Error from ASP microservice');
+                    return res.status(response.status).send(message.ASP_MICROSERVICE_ERROR);
                 }
 
                 const buffer = Buffer.from(await response.arrayBuffer());
@@ -480,7 +480,7 @@ app.post("/api/exportCompletedTasks", async (req, res, next) => {
             } 
             catch (error) {
                 console.error(error);
-                res.status(500).send("Error during export");
+                res.status(500).send(message.EXPORT_ERROR);
             }
         })
         .catch((err: MongoError) => {
@@ -531,7 +531,7 @@ app.post("/api/exportNotCompletedTasks", async (req, res, next) => {
                 );
 
                 if (!response.ok) {
-                    return res.status(response.status).send('Error from ASP microservice');
+                    return res.status(response.status).send(message.ASP_MICROSERVICE_ERROR);
                 }
 
                 const buffer = Buffer.from(await response.arrayBuffer());
@@ -550,7 +550,7 @@ app.post("/api/exportNotCompletedTasks", async (req, res, next) => {
             } 
             catch (error) {
                 console.error(error);
-                res.status(500).send("Error during export");
+                res.status(500).send(message.EXPORT_ERROR);
             }
         })
         .catch((err: MongoError) => {

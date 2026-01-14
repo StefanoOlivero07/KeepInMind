@@ -16,5 +16,9 @@ export class Message {
     MISSING_NEWUSER_PARAMETER: string = "Missing newUser parameter";
 
     // Database
-    DATABASE_ERROR: string = "An error occurred while communicating with the database"
+    DATABASE_ERROR: string = "An error occurred while communicating with the database";
+
+    // Exports
+    ASP_MICROSERVICE_ERROR: string = "Error from ASP microservice";
+    EXPORT_ERROR: string = "Error during export";
 }
