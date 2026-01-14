@@ -424,8 +424,15 @@ app.delete("/api/deleteTask", async (req, res, next) => {
 
 // Export completed tasks
 app.post("/api/exportCompletedTasks", async (req, res, next) => {
-    
+
+    if (!req.body.userId) {
+        console.log(message.MISSING_USERID_PARAMETER);
+        res.status(400).send(message.MISSING_USERID_PARAMETER);
+        return;
+    }
+
     const result: string = await connectClient();
+    const userId: ObjectId = new ObjectId(req.body.userId!.toString());
 
     if (result != "ok") {
         console.error(result);
@@ -434,15 +441,14 @@ app.post("/api/exportCompletedTasks", async (req, res, next) => {
     }
 
     const collection = client.db(dbName).collection(process.env.TASK_COLLECTION_NAME!);
-    const cmd = collection.find({"completed": true})
-    .project({"_id": 1, "title": 1, "description": 1, "category": 1, "expiration": 1})
+    const cmd = collection.find({"user._id": userId, "completed": true})
+    .project({"_id": 1, "title": 1, "description": 1, "category": 1, "created": 1, "completedAt": 1, "notes": 1})
     .toArray();
 
     cmd
         .then(async (data) => {
             try {
-                const tasks = req.body;
-
+                console.log(data);
                 const response = await fetch(
                     `${process.env.ASP_EXPORTS_URL}/api/exports/completedTasks`,
                     {
@@ -450,7 +456,7 @@ app.post("/api/exportCompletedTasks", async (req, res, next) => {
                         headers: {
                         'Content-Type': 'application/json'
                         },
-                        body: JSON.stringify(tasks)
+                        body: JSON.stringify(data)
                     }
                 );
 
@@ -467,7 +473,7 @@ app.post("/api/exportCompletedTasks", async (req, res, next) => {
 
                 res.setHeader(
                     "Content-Disposition",
-                    "attachment; filename=\"completed-tasks.docx\""
+                    "attachment; filename=completed-tasks.docx"
                 );
 
                 res.send(buffer);
@@ -489,7 +495,14 @@ app.post("/api/exportCompletedTasks", async (req, res, next) => {
 // Export not completed tasks
 app.post("/api/exportNotCompletedTasks", async (req, res, next) => {
     
+    if (!req.body.userId) {
+        console.log(message.MISSING_USERID_PARAMETER);
+        res.status(400).send(message.MISSING_USERID_PARAMETER);
+        return;
+    }
+
     const result: string = await connectClient();
+    const userId: ObjectId = new ObjectId(req.body.userId!.toString());
 
     if (result != "ok") {
         console.error(result);
@@ -498,15 +511,14 @@ app.post("/api/exportNotCompletedTasks", async (req, res, next) => {
     }
 
     const collection = client.db(dbName).collection(process.env.TASK_COLLECTION_NAME!);
-    const cmd = collection.find({"completed": false, "expiration": {"$gte": new Date().toLocaleDateString()}})
-    .project({"_id": 1, "title": 1, "description": 1, "category": 1, "expiration": 1})
+    const cmd = collection.find({"user._id": userId, "completed": false, "expiration": {"$gte": new Date().toLocaleDateString()}})
+    .project({"_id": 1, "title": 1, "description": 1, "category": 1, "created": 1, "expiration": 1, "notes": 1})
     .toArray();
 
     cmd
         .then(async (data) => {
             try {
-                const tasks = req.body;
-
+                console.log(data);
                 const response = await fetch(
                     `${process.env.ASP_EXPORTS_URL}/api/exports/notCompletedTasks`,
                     {
@@ -514,7 +526,7 @@ app.post("/api/exportNotCompletedTasks", async (req, res, next) => {
                         headers: {
                         'Content-Type': 'application/json'
                         },
-                        body: JSON.stringify(tasks)
+                        body: JSON.stringify(data)
                     }
                 );
 
@@ -531,7 +543,7 @@ app.post("/api/exportNotCompletedTasks", async (req, res, next) => {
 
                 res.setHeader(
                     "Content-Disposition",
-                    "attachment; filename=\"not-completed-tasks.docx\""
+                    "attachment; filename=not-completed-tasks.docx"
                 );
 
                 res.send(buffer);
