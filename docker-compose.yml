@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  server:
+    build:
+      context: ./app-backend/server
+      dockerfile: Dockerfile
+    container_name: keep-in-mind-server
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env.docker
+    networks:
+      - keep-in-mind-network
+
+  exports:
+    build:
+      context: ./app-backend/exports/Exports_Solution
+      dockerfile: Dockerfile
+    container_name: keep-in-mind-exports
+    ports:
+      - "5236:8080"
+    environment:
+      ASPNETCORE_URLS: "http://+:8080"
+    networks:
+      - keep-in-mind-network
+
+networks:
+  keep-in-mind-network:
+    driver: bridge

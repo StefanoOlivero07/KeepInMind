@@ -4,6 +4,7 @@
 ehthumbs.db
 Thumbs.db
 .env
+.env.docker
 TODO.md
 mongodb.conf
 
